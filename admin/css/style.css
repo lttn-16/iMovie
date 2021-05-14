@@ -1,0 +1,16 @@
+.center{
+    text-align: center;
+}
+
+.post{
+    padding: 0; 
+    margin-bottom: 10px;
+}
+
+@media (max-width:1300px) {
+    .sroll{
+        overflow-x: scroll;
+        width: 100%;
+    }
+}
+
