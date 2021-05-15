@@ -38,20 +38,20 @@
             <a class="nav-link" href="index.php">Trang chủ </a>
           </li>
           <li class="nav-item active li-nav">
-            <a class="nav-link" href="index.php">Tin tức</a>
+            <a class="nav-link" href="tintuc.php">Tin tức</a>
           </li>
           <li class="nav-item dropdown active li-nav">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Review phim</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Phim tình cảm</a>
-              <a class="dropdown-item" href="#">Phim hành động</a>
+              <a class="dropdown-item" href="phimtinhcam.php">Phim tình cảm</a>
+              <a class="dropdown-item" href="phimhanhdong.php">Phim hành động</a>
               <a class="dropdown-item" href="#">Phim kinh dị</a>
               <a class="dropdown-item" href="#">Phim hài</a>
               <a class="dropdown-item" href="#">Phim hoạt hình</a>
             </div>
           </li>
           <li class="nav-item active li-nav">
-            <a class="nav-link" href="index.php">Giới thiệu phim hay</a>
+            <a class="nav-link" href="gioithieuphimhay.php">Giới thiệu phim hay</a>
           </li>
           <li class="nav-item active li-nav">
             <a class="nav-link" href="admin/index.php">Admin</a>
