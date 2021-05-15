@@ -134,9 +134,33 @@
                         </div>
                     </div>
             </div>
+            <div class="row row-index">
+                    <div class="post">
+                        <a href="post.php">
+                            <img class="index-img" src="./images/friends.jpg">
+                        </a>
+                        <div class="content">
+                            <a href="post.php">Phim Friends đình đám trở lại, bất ngờ có tên BTS cùng loạt sao khủng</a>
+                            <p class="date">14/5/2021</p>
+                            <span>Sau 17 năm, loạt phim Friends sẽ chính thức trở lại vào mùa hè này với loạt diễn viên quen thuộc và dàn khách mời vô cùng đình đám.</span>
+                        </div>
+                    </div>
+            </div>
+            <div class="row row-index">
+                    <div class="post">
+                        <a href="post.php">
+                            <img class="index-img" src="./images/nanno.jpg">
+                        </a>
+                        <div class="content">
+                            <a href="post.php">Cuộc đối đầu ma quái của 2 ma nữ Girl From Nowhere: Khi cái chết không phải bản án nặng nề nhất?</a>
+                            <p class="date">14/5/2021</p>
+                            <span>Girl From Nowhere mùa 2 đặt ra cho khán giả những câu hỏi bỏ ngỏ rằng ai mới là kẻ có quyền phán xét tội lỗi của con người.</span>
+                        </div>
+                    </div>
+            </div>
         </div>
         
-        <?php include "include/slide-bar.php"; ?>
+        <?php include "include/side-bar.php"; ?>
 
     </div>
    

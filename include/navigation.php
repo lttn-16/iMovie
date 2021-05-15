@@ -45,7 +45,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="phimtinhcam.php">Phim tình cảm</a>
               <a class="dropdown-item" href="phimhanhdong.php">Phim hành động</a>
-              <a class="dropdown-item" href="#">Phim kinh dị</a>
+              <a class="dropdown-item" href="phimkinhdi.php">Phim kinh dị</a>
               <a class="dropdown-item" href="#">Phim hài</a>
               <a class="dropdown-item" href="#">Phim hoạt hình</a>
             </div>

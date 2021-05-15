@@ -72,9 +72,9 @@
   	 	    <div class="row row-footer">
   	 		    <div class="footer-col col-md-3">
   	 			    <h4>Giới thiệu</h4>
-  	 			    <p>iMovie là một trang blog chuyên review phim; nhận xét, đánh giá, 
+  	 			    <p>iMovie là một trang blog chuyên review phim: nhận xét, đánh giá, 
                        tóm tắt nội dung các phim chiếu rạp Việt Nam và Hollywood với cảm nhận cá nhân. 
-                       Ngoài ra Blog còn tổng hợp tin tức về điện ảnh, những câu chuyện hậu trường và các 
+                       Ngoài ra, Blog còn tổng hợp tin tức về điện ảnh, những câu chuyện hậu trường và các 
                        diễn viên trong phim.</p>
                 </div>
                 <div class="footer-col col-md-3">

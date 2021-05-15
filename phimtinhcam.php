@@ -32,9 +32,33 @@
                             </div>
                         </div>
             </div>
+            <div class="row row-index">
+                        <div class="post">
+                            <a href="post.php">
+                                <img class="index-img" src="./images/lua-deu-gap-lua-dao.jpg">
+                            </a>
+                            <div class="content">
+                                <a href="post.php">Review phim Lừa Đểu Gặp Lừa Đảo hài hước và rất ý nghĩa</a>
+                                <p class="date">13/1/2021</p>
+                                <span>Review phim Lừa Đểu Gặp Lừa Đảo (The Con-Heartist) thuộc thể loại com-rom tình cảm hài có nội dung về phi vụ lừa đảo hấp dẫn và bất ngờ.</span>
+                            </div>
+                        </div>
+            </div>
+            <div class="row row-index">
+                        <div class="post">
+                            <a href="post.php">
+                                <img class="index-img" src="./images/little-women.jpg">
+                            </a>
+                            <div class="content">
+                                <a href="post.php">Cảm nhận phim Little Women khi phụ nữ là trung tâm</a>
+                                <p class="date">9/3/2020</p>
+                                <span>Review phim Little Women, tất cả các cô gái đều đưa ra lựa chọn mà mình thấy là dũng cảm hơn, táo bạo hơn.</span>
+                            </div>
+                        </div>
+            </div>
     </div>
     <!-- Sidebar -->
-            <?php include "include/slide-bar.php"; ?>
+            <?php include "include/side-bar.php"; ?>
     <!-- End Sidebar -->
 </div>
 <!--End page content -->
