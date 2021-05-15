@@ -58,7 +58,7 @@
             </div>
     </div>
     <!-- Sidebar -->
-            <?php include "include/slide-bar.php"; ?>
+            <?php include "include/side-bar.php"; ?>
     <!-- End Sidebar -->
 </div>
 <!--End page content -->
