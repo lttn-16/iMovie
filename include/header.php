@@ -22,7 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Chèn file css dô đây -->
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
-    <script src="./iMovie-master/js/index.js"></script>
+    <script src="./js/index.js"></script>
 </head>
 
 <body>

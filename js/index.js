@@ -174,3 +174,4 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
         }
     }
 }
+

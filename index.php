@@ -11,7 +11,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/sieu-trom-1.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/sieu-trom-1.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Review phim Siêu Trộm (Way Down) phi vụ quá an toàn</a>
@@ -23,7 +23,7 @@
             <div class="row row-index">
                         <div class="post">
                             <a href="post.php">
-                                <img class="index-img" src="./images/chaos.jpg" style="width:400px;">
+                                <img class="index-img" src="./images/chaos.jpg">
                             </a>
                             <div class="content">
                                 <a href="post.php">Review phim Hành Tinh Hỗn Loạn (Chaos Walking) với nhiều đáng tiếc</a>
@@ -35,7 +35,7 @@
             <div class="row row-index">
                         <div class="post">
                             <a href="post.php">
-                                <img class="index-img" src="./images/co-gai-tre.jpg" style="width:400px;">
+                                <img class="index-img" src="./images/co-gai-tre.jpg">
                             </a>
                             <div class="content">
                                 <a href="post.php">Review và giải thích ý nghĩa phim Promising Young Woman (Cô Gái Trẻ Hứa Hẹn)</a>
@@ -47,7 +47,7 @@
             <div class="row row-index">
                         <div class="post">
                             <a href="post.php">
-                                <img class="index-img" src="./images/minari.jpg" style="width:400px;">
+                                <img class="index-img" src="./images/minari.jpg">
                             </a>
                             <div class="content">
                                 <a href="post.php">Review và giải thích ý nghĩa phim Minari (Khát Vọng Đổi Đời)</a>
@@ -62,7 +62,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/all-my-friends.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/all-my-friends.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Review phim All My Friends Are Dead (2020) tác phẩm kinh dị hài đầy ẩn ý</a>
@@ -74,7 +74,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/shadow-and-bone.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/shadow-and-bone.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Review phim Shadow and Bone – Series giả tưởng hot trên Netflix</a>
@@ -86,7 +86,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/sound-of-metal.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/sound-of-metal.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Review phim Sound of Metal (2019) khiếm thính và âm nhạc</a>
@@ -98,7 +98,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/lupin.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/lupin.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Review series phim Lupin và giải thích cốt truyện</a>
@@ -113,7 +113,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/suicide-squad.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/suicide-squad.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">Bom tấn The Suicide Squad còn chưa chiếu, cái kết đã bị "vạch trần" trên mạng làm khán giả thấp thỏm</a>
@@ -125,7 +125,7 @@
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/marvel.jpg" style="width:400px;">
+                            <img class="index-img" src="./images/marvel.jpg">
                         </a>
                         <div class="content">
                             <a href="post.php">"Toang" cho Marvel: 2 bom tấn Shang-Chi và The Eternals có nguy cơ bị cấm chiếu ở Trung Quốc</a>
