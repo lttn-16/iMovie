@@ -5,18 +5,18 @@
         <form action="" method="POST" class="form" id="form-1">
             <div class="form-header">
                 <img class="form-logo" src="./images/logo.jpg" alt="logo">
-                <h3 class="heading">Đăng kí thành viên</h3>
+                <h3 class="heading">Đăng ký thành viên</h3>
             </div>
     
             <div class="form-group">
                 <label for="fullname" class="form-label">Tên đăng nhập</label>
-                <input id="fullname" name="fullname" type="text" placeholder="VD: LeNhi" class="form-control">
+                <input id="fullname" name="fullname" type="text" placeholder="Nhập username" class="form-control">
                 <span class="form-message"></span>
             </div>
     
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
-                <input class="form-control"id="email" name="email" type="text" placeholder="VD: email@domain.com">
+                <input class="form-control"id="email" name="email" type="text" placeholder="Nhập email">
                 <span class="form-message"></span>
             </div>
     
@@ -34,21 +34,7 @@
     
             <button class="btn btn-danger form-submit">Đăng ký</button>
 
-            <div class="row line">
-                <hr class="ORline">
-                    <span class="ORtext">OR</span>
-                <hr class="ORline">
-            </div>
-            <div class="row">
-                <p class="textgoogleaccount">Bạn có tài khoản Google?</p>  
-                        
-                <div class="col-xs-12 col-md-12 col-sm-12">
-                    <a class="badge badge-light googlesignupbutton">
-                        <img src="./images/google.jpg" alt="google logo" class="googlelogo"> 
-                        Đăng nhập với tài khoản Google
-                    </a>
-                </div>
-            </div>
+            
         </form>
 
     </div>

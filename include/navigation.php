@@ -1,12 +1,12 @@
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-sm-8">
   <a href="./index.php"><img class="logo-img" src="./images/logo.jpg" alt="iMovie Logo"></a>
   </div>
-  <div class="col-md-2">
-    <a href="login.php"><button type="submit" class="btn btn-login btn-danger"style="border-radius: 5px; margin-top:30px;"> Đăng nhập</button></a>
-    <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"style="border-radius: 5px; margin-top:30px;"> Đăng ký</button></a>
+  <div class="col-sm-4" class="btn_nav">
+    <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>
+    <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
   </div>
 </div>
     <!-- Navigation -->

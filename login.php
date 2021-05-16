@@ -25,6 +25,21 @@
                 <label class="form-check-label" for="check">Nhớ mật khẩu</label>
             </div>
             <button class="btn btn-danger form-submit">Đăng nhập</button>
+            <div class="row line">
+                <hr class="ORline">
+                    <span class="ORtext">OR</span>
+                <hr class="ORline">
+            </div>
+            <div class="row">
+                <p class="textgoogleaccount">Bạn có tài khoản Google?</p>  
+                        
+                <div class="col-xs-12 col-md-12 col-sm-12">
+                    <a class="badge badge-light googlesignupbutton">
+                        <img src="./images/google.jpg" alt="google logo" class="googlelogo"> 
+                        Đăng nhập với tài khoản Google
+                    </a>
+                </div>
+            </div>
         </form>
     </div>
 

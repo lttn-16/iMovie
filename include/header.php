@@ -13,14 +13,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<<<<<<< HEAD
-
-    <!-- Custom CSS -->
-    <!-- Chèn file css dô đây -->
-    <link rel="stylesheet" href="css/styles.css">
-
-
-=======
     <!-- Custom CSS -->
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +23,6 @@
     <!-- Chèn file css dô đây -->
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
     <script src="./js/index.js"></script>
->>>>>>> 52a059cf81645acedcb6d2086438d9dcf0de2283
 </head>
 
 <body>
