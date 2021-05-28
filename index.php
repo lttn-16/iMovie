@@ -1,3 +1,5 @@
+<?php include "include/db.php"; ?>
+<?php include "include/header.php";?>
 <!-- Trang chủ -->
 <?php include "./include/navigation.php"; ?>
     <div class="container container-index">
@@ -7,54 +9,37 @@
                     <a href="#">REVIEW PHIM </a>
                 </h4>
             </div>
+            <?php 
+                $query = "SELECT * FROM posts";
+                $query_seclect_all_posts = mysqli_query($connection,$query);
+
+                    while($row = mysqli_fetch_assoc($query_seclect_all_posts)){
+                        $post_title = $row['post_title'];
+                        $post_id = $row['post_id'];
+                        $post_author = $row['post_author'];
+                        $post_date = $row['post_date'];
+                        $post_image_display = $row['post_img_display'];
+                        $post_status = $row['post_status'];
+                        $post_summary = $row['post_summary'];
+                        if($post_status == 'published'){
+                                    
+            ?>
             <div class="row row-index">
                     <div class="post">
                         <a href="post.php">
-                            <img class="index-img" src="./images/sieu-trom-1.jpg">
+                            <img class="index-img" src="./images/<?php echo $post_image_display; ?>">
                         </a>
                         <div class="content">
-                            <a href="post.php">Review phim Siêu Trộm (Way Down) phi vụ quá an toàn</a>
-                            <p class="date">29/3/2021</p>
-                            <span>Review phim Siêu Trộm (Way Down) tác phẩm hành động của điện ảnh Tây Ban Nha mang đậm chất giải trí nhưng với mô típ thiếu sự sáng tạo.</span>
+                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
+                            <p class="date"><?php echo $post_date ?></p>
+                            <span><?php echo $post_summary ?></span>
                         </div>
                     </div>
             </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/chaos.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review phim Hành Tinh Hỗn Loạn (Chaos Walking) với nhiều đáng tiếc</a>
-                                <p class="date">22/3/2021</p>
-                                <span>Review phim Hành Tinh Hỗn Loạn (Chaos Walking) là một tác phẩm viễn tưởng hội tụ đủ hành động phiêu lưu, tâm lý tình cảm với nhiều phép ẩn dụ thú vị.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/co-gai-tre.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review và giải thích ý nghĩa phim Promising Young Woman (Cô Gái Trẻ Hứa Hẹn)</a>
-                                <p class="date">5/4/2021</p>
-                                <span>Review phim Promising Young Woman (Cô Gái Trẻ Hứa Hẹn) - tác phẩm đầu tay của đạo diễn Emerald Fennell mang đến một câu chuyện mới lạ, bất ngờ nhưng cũng đầy tính chiêm nghiệm.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/minari.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review và giải thích ý nghĩa phim Minari (Khát Vọng Đổi Đời)</a>
-                                <p class="date">16/3/2021</p>
-                                <span>Review phim Minari (Khát Vọng Đổi Đời) là một tác phẩm chậm, nhẹ nhàng nhiều hình ảnh ẩn dụ ý nghĩa về những người Á Đông với khát vọng đổi đời nơi đất khách.</span>
-                            </div>
-                        </div>
-            </div>
+            <?php }} ?>
+            
+            
+            
             <h4 class="block-title">
                 <a href="#">Giới thiệu phim hay </a>
             </h4>

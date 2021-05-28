@@ -21,6 +21,7 @@
     <!-- Custom js -->
     
     <script src="../admin/js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/scripts.js" ></script>
     
 </body>
 

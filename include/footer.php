@@ -5,7 +5,7 @@
             <!-- Tiêu đề -->
             <div class="row padding">
                 <div class="col-md-12">
-                    <h3 class="title t-bold t-bold--condensed">Bài viết mới</h3>
+                    <h3 class="title t-bold t-bold--condensed mb-3">Bài viết mới</h3>
                 </div>
             </div>
             <!-- Hết phần tiêu đề -->
@@ -72,10 +72,9 @@
             <div class="row row-footer">
                 <div class="footer-col col-md-3">
                     <h4>Giới Thiệu</h4>
-                    <p>iMovie là một trang blog chuyên review phim: nhận xét, đánh giá,
+                    <p style="width:88%;">iMovie là một trang blog chuyên review phim: nhận xét, đánh giá,
                         tóm tắt nội dung các phim chiếu rạp Việt Nam và Hollywood với cảm nhận cá nhân.
-                        Ngoài ra, Blog còn tổng hợp tin tức về điện ảnh, những câu chuyện hậu trường và các
-                        diễn viên trong phim.</p>
+                        </p>
                 </div>
                 <div class="footer-col col-md-3">
                     <h4>Điều Khoản Và Chính Sách</h4>
@@ -83,15 +82,13 @@
                         <li><a href="#">Trách nhiệm người sử dụng</a></li>
                         <li><a href="#">Về nội dung trên trang web</a></li>
                         <li><a href="#">Về bản quyền</a></li>
-                        <li><a href="#">Về việc sử dụng thông tin</a></li>
-                        <li><a href="#">Liên kết với các trang khác</a></li>
                         <li><a href="#">Thay đổi nội dung</a></li>
                     </ul>
 
                 </div>
                 <div class="footer-col col-md-3">
                     <h4>Liên Hệ</h4>
-                    <ul>
+                    <ul style="width:88%;">
                         <!-- <li><a href="#"><img src="./images/logo_transparent.png" alt="logo"></a></li> -->
                         <li><a href="#">Hotline: 0938 043 314</a></li>
                         <li><a href="#">Email: iMovie@gmail.com</a></li>

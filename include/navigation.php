@@ -1,12 +1,16 @@
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
-<div class="row">
-  <div class="col-sm-8">
-  <a href="./index.php"><img class="logo-img" src="./images/logo.jpg" alt="iMovie Logo"></a>
+
+<div class="row " >
+  <div class="col-sm-8 logo">
+  <a href="./index.php"><img class="logo__img"  src="./images/logo.jpg" alt="iMovie Logo"></a>
+  <a href="./index.php" class="logo__name">iMovie</a>
   </div>
-  <div class="col-sm-4" class="btn_nav">
-    <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>
-    <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
+  <div class="col-lg-4">
+     <div class="btn_nav">
+        <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>
+        <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
+  </div>
   </div>
 </div>
     <!-- Navigation -->
@@ -57,7 +61,7 @@
             <a class="nav-link" href="admin/index.php">Admin</a>
           </li>
         </ul>
-        <form class="search-form form-inline my-2 my-lg-0">
+        <form class="search-form form-inline my-2 my-lg-0 searchbar" >
           <input class="form-control mr-sm-2" type="text" placeholder="Nhập tên phim" aria-label="Search">
           <button type="submit" class="btn btn-search btn-light">
             <i class="fa fa-search" aria-hidden="true"></i>

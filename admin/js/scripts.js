@@ -1,11 +1,10 @@
 $(document).ready(function(){
+    //alert("Hello");
     
-    // CK Editor 5
-    ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+    //CK Editor 5
+    var editor = CKEDITOR.replace( 'editor' );
+    CKFinder.setupCKEditor( editor );
+
 
     //Data Table
     $(document).ready(function() {
