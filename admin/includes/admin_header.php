@@ -39,6 +39,7 @@
     <!-- Data table -->
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     
    <!-- Custom CSS -->
    <link href="../admin/css/style.css" rel="stylesheet">

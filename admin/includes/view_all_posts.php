@@ -57,6 +57,7 @@
                     $post_views = $row['post_views'];
                     echo "<tr class='center'>";
             ?>
+                
                     <td><input type='checkbox' class='checkBoxes' name="checkBoxArray[]" value="<?php echo $post_id;  ?>"></td>
             <?php 
                     echo "<td>{$post_id}</td>";
@@ -99,6 +100,7 @@
             </tbody>
         </table>
 
+
 <?php 
         if(isset($_GET['delete'])){
             $the_post_id = $_GET['delete'];
@@ -108,3 +110,5 @@
             header("Location: posts.php"); 
         }
 ?>
+
+
