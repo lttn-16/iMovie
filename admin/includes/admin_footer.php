@@ -18,7 +18,7 @@
 
     <!-- Custom js -->
     <script src="../admin/js/scripts.js" type="text/javascript"></script>
-    
+
 </body>
 
 </html>

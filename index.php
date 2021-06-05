@@ -10,7 +10,7 @@
                 </h4>
             </div>
             <?php 
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts LIMIT 4";
                 $query_seclect_all_posts = mysqli_query($connection,$query);
 
                     while($row = mysqli_fetch_assoc($query_seclect_all_posts)){
@@ -26,7 +26,7 @@
             ?>
             <div class="row row-index">
                     <div class="post">
-                        <a href="post.php">
+                        <a href="post.php?p_id=<?php echo $post_id ?>">
                             <img class="index-img" src="./images/<?php echo $post_image_display; ?>">
                         </a>
                         <div class="content">

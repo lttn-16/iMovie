@@ -17,7 +17,9 @@
 
                     </h1>
                     <div class="col-xs-6">
-
+                    <?php
+                        insert_categories();
+                    ?>
 
                         <form action="" method="post">
                             <div class="form-group">
@@ -30,12 +32,17 @@
                             </div>
                         </form>
 
-
+                    <?php
+                        if (isset($_GET['edit'])) {
+                            $cat_id = $_GET['edit'];
+                            include "includes/update_categories.php";
+                        }
+                    ?>
                     </div>
 
+                    
+
                     <div class="col-xs-6">
-
-
 
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -47,33 +54,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="center">
-                                    <td>1</td>
-                                    <td>Phim mới</td>
-                                    <td><a href='/'><i class="fas fa-edit fa-lg"></i></a></td>
-                                    <td><a href='/'><i class="fas fa-trash-alt fa-lg"></i></a></td>
-                                </tr>
-                                <tr class="center">
-                                    <td>2</td>
-                                    <td>Phim hay</td>
-                                    <td><a href='/'><i class="fas fa-edit fa-lg"></i></a></td>
-                                    <td><a href='/'><i class="fas fa-trash-alt fa-lg"></i></a></td>
-                                </tr>
-                                <tr class="center">
-                                    <td>2</td>
-                                    <td>Phim Ok</td>
-                                    <td><a href='/'><i class="fas fa-edit fa-lg"></i></a></td>
-                                    <td><a href='/'><i class="fas fa-trash-alt fa-lg"></i></a></td>
-                                </tr>
-                                <tr class="center">
-                                    <td>2</td>
-                                    <td>Ok</td>
-                                    <td><a href='/'><i class="fas fa-edit fa-lg"></i></a></td>
-                                    <td><a href='/'><i class="fas fa-trash-alt fa-lg"></i></a></td>
-                                </tr>
+                                <?php add_delete_categories(); ?>
                             </tbody>
-
-
 
                         </table>
                     </div>

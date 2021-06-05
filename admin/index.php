@@ -32,7 +32,9 @@
                                     <i class="fa fa-file-text fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    1
+                                <?php
+                                        count_post();
+                                ?>
 
                                     <div>Bài viết</div>
                                 </div>
@@ -55,7 +57,12 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    2
+                                <?php
+                                    // $query = "SELECT * FROM comments";
+                                    // $count_comment_query = mysqli_query($connection, $query);
+                                    // $comment_count = mysqli_num_rows($count_comment_query);
+                                    // echo "<div class='huge'>{$comment_count}</div>"; 
+                                ?>
 
                                     <div>Bình luận</div>
                                 </div>
@@ -78,7 +85,9 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    5
+                                <?php
+                                    count_user();
+                                ?>
 
                                     <div> Users</div>
                                 </div>
@@ -101,7 +110,9 @@
                                     <i class="fa fa-list fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    8
+                            <?php
+                                count_categories();
+                            ?>
 
                                     <div>Danh mục</div>
                                 </div>

@@ -1,3 +1,4 @@
+
 <!-- Trang hiển thị nội dung bài viết -->
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
@@ -8,6 +9,7 @@
             <div>
                 <div>
                 <?php 
+
                     
                     if(isset($_GET['p_id'])){
                         $the_post_id = $_GET['p_id'];
@@ -15,6 +17,15 @@
                         header("Location: index.php"); 
                     } 
 
+                    //Update view post
+                    $query = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = $the_post_id";
+                    $view_query = mysqli_query($connection, $query);
+    
+                    if(!$view_query){
+                        die("QUERY FAILED" . mysqli_error($connection));
+                    }
+
+                    //Render post
                     $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
                     $query_seclect_all_posts = mysqli_query($connection,$query);
     
