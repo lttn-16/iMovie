@@ -142,9 +142,9 @@
 
     <?php  } ?>
     <!-- Sidebar -->
-    <!-- <?php include "include/side-bar.php"; ?> -->
+    <?php include "include/side-bar.php"; ?>
     <!-- End Sidebar -->
     </div>
-    <!-- End Post page -->
-
-    <?php include "include/footer.php"; ?>
+</div>
+<!-- End Post page -->
+<?php include "include/footer.php"; ?>
