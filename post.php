@@ -60,9 +60,9 @@
             <!--Post-content -->
             <div class="post-content">
                 
-                <p>
+                <!-- <p>
                     <img class="body-img" src="./images/<?php echo $post_image; ?>" sizes="(max-width: 800px) 100vw, 800px">
-                </p>
+                </p> -->
                 <p>
                     <?php echo $post_content ?>
                 </p>
