@@ -1,35 +1,35 @@
-
 <!-- Trang hiển thị nội dung bài viết -->
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
-    <?php include "include/navigation.php"; ?>
-    <div class="container container-index">
-        <div class="left">
-            <!-- Post header -->
+<?php include "include/navigation.php"; ?>
+<div class="container container-index">
+    <div class="left">
+        <!-- Post header -->
+        <div>
             <div>
                 <div>
-                <?php 
+                    <?php
 
-                    
-                    if(isset($_GET['p_id'])){
+
+                    if (isset($_GET['p_id'])) {
                         $the_post_id = $_GET['p_id'];
                     } else {
-                        header("Location: index.php"); 
-                    } 
+                        header("Location: index.php");
+                    }
 
                     //Update view post
                     $query = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = $the_post_id";
                     $view_query = mysqli_query($connection, $query);
-    
-                    if(!$view_query){
+
+                    if (!$view_query) {
                         die("QUERY FAILED" . mysqli_error($connection));
                     }
 
                     //Render post
                     $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
-                    $query_seclect_all_posts = mysqli_query($connection,$query);
-    
-                    while($row = mysqli_fetch_assoc($query_seclect_all_posts)){
+                    $query_seclect_all_posts = mysqli_query($connection, $query);
+
+                    while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
                         $post_title = $row['post_title'];
                         $post_author = $row['post_author'];
                         $post_date = $row['post_date'];
@@ -38,13 +38,13 @@
                         $post_summary = $row['post_summary'];
                         $post_tags = $row['post_tags'];
                         $tags = explode(',', $post_tags);
-                        
+
                     ?>
-    
-                    <h1>
-                        <?php echo $post_title ?>
-                        
-                    </h1>
+
+                        <h1>
+                            <?php echo $post_title ?>
+
+                        </h1>
                 </div>
                 <div class="sub-title">
                     <p>
@@ -59,32 +59,30 @@
 
             <!--Post-content -->
             <div class="post-content">
-                
-                <!-- <p>
-                    <img class="body-img" src="./images/<?php echo $post_image; ?>" sizes="(max-width: 800px) 100vw, 800px">
-                </p> -->
+
+
                 <p>
                     <?php echo $post_content ?>
                 </p>
-                
 
-                   
+
+
             </div>
             <!-- End Post-content -->
 
             <!-- Tag list -->
             <div class="tag">
                 <button type="button" class="btn btn-dark" disabled="disabled">TAGS</button>
-                <?php 
-                    foreach($tags as $tag){
-                        echo "<button type='button' class='btn btn-danger btn-outline ml-2'>$tag</button>";
-                    }
+                <?php
+                        foreach ($tags as $tag) {
+                            echo "<button type='button' class='btn btn-danger btn-outline ml-2'>$tag</button>";
+                        }
                 ?>
-                
+
             </div>
-            
+
             <!--End Tag list -->
-   
+
             <!-- Social share -->
             <div class="social-share">
                 <!-- Add font awesome icons -->
@@ -100,7 +98,7 @@
             <!-- Comment Form -->
             <div class="comment">
                 <h4><b>Bình luận:</b></h4>
-                <form role="form" method="POST" >
+                <form role="form" method="POST">
                     <div class="form-group">
                         <label for="author">Tên</label>
                         <input type="text" class="form-control" name="comment_author">
@@ -137,18 +135,18 @@
                     <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <br>
                 </div>
-            
-                        <!-- End Reply Zone -->
-                    <!-- End Comment zone -->
+
+                <!-- End Reply Zone -->
+                <!-- End Comment zone -->
             </div>
-                <!-- End Post -->
+            <!-- End Post -->
         </div>
-       
-        <?php  } ?>
-        <!-- Sidebar -->
-        <?php include "include/side-bar.php"; ?>
-        <!-- End Sidebar -->
+
+    <?php  } ?>
+    <!-- Sidebar -->
+    <?php include "include/side-bar.php"; ?>
+    <!-- End Sidebar -->
     </div>
     <!-- End Post page -->
-    
-<?php include "include/footer.php"; ?>
+
+    <?php include "include/footer.php"; ?>
