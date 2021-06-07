@@ -38,8 +38,6 @@
             </div>
             <?php }} ?>
             
-            
-            
             <h4 class="block-title">
                 <a href="#">Giới thiệu phim hay </a>
             </h4>
