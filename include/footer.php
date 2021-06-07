@@ -12,56 +12,37 @@
             <!-- Phần bài viết mới -->
             <div class="row padding">
                 <!-- Một bài viết mới -->
-                <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-img-top" src="./images/post1.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Review và giải thích phim Us – Chúng ta (2019)</h4>
-                            <p class="card-text">iMovie thấy có một điều rất lạ đó là 90% các bài đánh giá về phim Us – Chúng ta (2019)
-                                dù là trong hay ngoài nước đều khen phim lên tận mây xanh, trong khi cảm nhận của mình về
-                                phim như kiểu bị mông lung giữa sự pha trộn nhiều thứ và cố tỏ ra nguy hiểm trong tình tiết
-                                vậy.</p>
-                            <a href="#" class="btn btn-danger">Xem Thêm</a>
+                <?php
+                $query = "SELECT * FROM posts ORDER BY post_date DESC LIMIT 4";
+                $query_seclect_all_posts = mysqli_query($connection, $query);
+
+                while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
+                    $post_title = $row['post_title'];
+                    $post_id = $row['post_id'];
+                    $post_author = $row['post_author'];
+                    $post_date = $row['post_date'];
+                    $post_image_display = $row['post_img_display'];
+                    $post_status = $row['post_status'];
+                    $post_summary = $row['post_summary'];
+                    if ($post_status == 'published') {
+                ?>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <a href="post.php?p_id=<?php echo $post_id ?>">
+                                    <img class="card-img-top" src="./images/<?php echo $post_image_display; ?>">
+                                </a>
+                                <div class="card-body">
+                                    <h4><a class="card-title" href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a></h4>
+
+                                    <p class="card-text"><?php echo $post_summary ?></p>
+                                    <a class=" btn btn-danger" href="post.php?p_id=<?php echo $post_id ?> ">Xem Thêm</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                <?php }
+                } ?>
                 <!-- Hết một bài viết -->
-                <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-img-top" src="./images/post2.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Review và giải thích phim Hereditary – Di truyền</h4>
-                            <p class="card-text">Hereditary – Di truyền là một trong những bộ phim kinh dị được đánh giá xuất sắc nhất
-                                năm 2018, tuy nhiên phim lại không lọt được qua màn kiểm duyệt để trình chiếu tại Việt Nam.
-                                Hãy cùng iMovie review phim này và phân tích những điểm thú vị của mộ phim ám ảnh này nhé.</p>
-                            <a href="#" class="btn btn-danger">Xem Thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-img-top" src="./images/post3.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Review trải nghiệm tham quan Heineken tại Bitexco</h4>
-                            <p class="card-text">Thật không dễ để chúng ta có thể được tham quan những tầng cao nhất của tòa nhà biểu tượng
-                                của Thành phố Hồ Chí Minh - Bitexco cũng như tìm hiểu về lịch sử và quy trình sản xuất loại
-                                beer nổi tiếng nhất thế giới – Heineken.</p>
-                            <a href="#" class="btn btn-danger">Xem Thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-img-top" src="./images/post4.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Review nhanh phim Ước hẹn mùa thu - 2019</h4>
-                            <p class="card-text">Bộ phim về mùa thu chiếu vào mùa hè này mang lại khá nhiều tiếng cười cũng như cảm giác
-                                lấn cấn cho iMovie review. Tại sao iMovie review lại nhận xét như vậy nhỉ? Nào, hãy cùng iMovie
-                                review nhanh phim Ước hẹn mùa thu xem phim có gì mà mình review vậy các bạn nhé.</p>
-                            <a href="#" class="btn btn-danger">Xem Thêm</a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -74,7 +55,7 @@
                     <h4>Giới Thiệu</h4>
                     <p style="width:88%;">iMovie là một trang blog chuyên review phim: nhận xét, đánh giá,
                         tóm tắt nội dung các phim chiếu rạp Việt Nam và Hollywood với cảm nhận cá nhân.
-                        </p>
+                    </p>
                 </div>
                 <div class="footer-col col-md-3">
                     <h4>Điều Khoản Và Chính Sách</h4>
@@ -108,7 +89,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-twitter-square footer_icon" ></i>
+                                <i class="fa fa-twitter-square footer_icon"></i>
                                 Twitter
                             </a>
                         </li>
