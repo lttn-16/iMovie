@@ -10,7 +10,6 @@
                 <div>
                     <?php
 
-
                     if (isset($_GET['p_id'])) {
                         $the_post_id = $_GET['p_id'];
                     } else {
@@ -33,7 +32,6 @@
                         $post_title = $row['post_title'];
                         $post_author = $row['post_author'];
                         $post_date = $row['post_date'];
-                        $post_image = $row['post_image'];
                         $post_content = $row['post_content'];
                         $post_summary = $row['post_summary'];
                         $post_tags = $row['post_tags'];
@@ -144,7 +142,7 @@
 
     <?php  } ?>
     <!-- Sidebar -->
-    <?php include "include/side-bar.php"; ?>
+    <!-- <?php include "include/side-bar.php"; ?> -->
     <!-- End Sidebar -->
     </div>
     <!-- End Post page -->
