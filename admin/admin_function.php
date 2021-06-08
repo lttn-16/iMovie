@@ -231,4 +231,71 @@ function count_categories()
     echo "<div class='huge'>{$category_count}</div>";
 }
 
+//Display comments
+function dispaly_all_comments(){
+    global $connection;
+    $query = "SELECT * FROM comments, posts WHERE comments.post_id = posts.post_id";
+    $select_cmts = mysqli_query($connection, $query);
+
+    while($row = mysqli_fetch_array($select_cmts)){
+        if($row['cmt_status']==1){
+            $row['cmt_status'] = "Xuất bản";
+        } else {
+            $row['cmt_status'] = "Nháp";
+        }
+        $cmt_id = $row['cmt_id'];
+        $cmt_author = $row['cmt_author'];
+        $post_title = $row['post_title'];
+        $cmt_content = $row['cmt_content'];
+        $cmt_email = $row['cmt_email'];
+        $cmt_status = $row['cmt_status'];
+        $cmt_date =$row['cmt_date'];
+
+        echo "<tr class='center'>";
+        echo "<td>{$cmt_id}</td>";
+        echo "<td>{$cmt_author}</td>";
+        echo "<td>{$cmt_content}</td>";
+        echo "<td>{$cmt_email}</td>";
+        echo "<td>{$cmt_status}</td>";
+        echo "<td>{$post_title}</td>";
+        echo "<td>{$cmt_date}</td>";
+
+        echo " <td><a href='comments.php?approve={$cmt_id}' ><i class='fas fa-check-circle fa-lg'></i></a></td>";
+        echo "<td><a href='comments.php?not-approve={$cmt_id}' ><i class='fas fa-window-close fa-lg'></i></a></td>";
+        echo "<td><a onClick=\" javascript: return confirm('Are you sure you want to delete?') \" href='comments.php?delete={$cmt_id}' ><i class='fas fa-trash-alt fa-lg'></i></a></td>";
+
+        echo "</tr>";
+    }
+}
+
+//Delete comment
+function delete_comment(){
+    global $connection;
+
+    if(isset($_GET['delete'])){
+        //Delete comment
+        $cmt_id = $_GET['delete'];
+
+        $query = "DELETE FROM comments WHERE cmt_id = $cmt_id";
+        $delete_query = mysqli_query($connection, $query);
+        confirm($delete_query);
+        header("Location: comments.php"); 
+    } elseif(isset($_GET['approve'])){
+        //Approve comment
+        $cmt_id = $_GET['approve'];
+
+        $query = "UPDATE comments SET cmt_status ='1' WHERE cmt_id = $cmt_id";
+        $delete_query = mysqli_query($connection, $query);
+        confirm($delete_query);
+        header("Location: comments.php");
+    } elseif(isset($_GET['not-approve'])){
+        //Not approve comment
+        $cmt_id = $_GET['not-approve'];
+
+        $query = "UPDATE comments SET cmt_status ='0' WHERE cmt_id = $cmt_id";
+        $delete_query = mysqli_query($connection, $query);
+        confirm($delete_query);
+        header("Location: comments.php");
+    }
+}
 ?>
