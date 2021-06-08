@@ -88,25 +88,5 @@
             <i class="fa fa-search" aria-hidden="true"></i>
           </button> 
         </form>
-
-        <!-- 
-        Dong code nay khi nao can dung ajax thi dung 
-        <script src="./js/jquery-3.6.0.min.js"></script>
-        <script>
-        var jqNew = jQuery.noConflict();
-          jqNew( "#searchbox" ).submit(function( event ) {
-              console.log(jqNew("#keyword").val());
-              event.preventDefault();
-              jqNew.ajax({
-                type: "GET",
-                url: "./search.php",
-                data: jqNew(this).serialize(),
-                success: function (res) {
-                  console.log(JSON.parse(res));
-                },
-              });
-            });
-        </script>
-        -->
       </div>
   </nav>
