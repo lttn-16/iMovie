@@ -34,6 +34,27 @@
                   menu.classList.remove('open');
                 }
             }
+            function searchPost(){
+              //Get keyword entered by user
+              var keyword = document.getElementById("keyword").value;
+
+              //Make Ajax request
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200) {
+                  var searchResults = JSON.parse(this.responseText);
+                  document.getElementById("search-result").innerHTML= ""; //Clear search result
+                  for (iResult in searchResults)
+                  {
+                    var productHtml = "<img class='col-md-4 col-sm-6 col-xs-12 thumbnail img-responsive' src='" + searchResults[iResult].ImageLink + "'>";
+                    document.getElementById("search-result").innerHTML += productHtml;
+                  }
+                }
+              };
+              //Send Ajax request
+              xhttp.open("GET", "http://localhost/dealcongnghe2/server/postcontroller.php?action=searchAjax&keyword="+keyword, true);
+              xhttp.send();
+            }
           </script>
           <i class="menu-icon fa fa-bars" aria-hidden="true" style="color: #fff; font-size: 1.8rem;"></i>
         </div>
@@ -58,14 +79,34 @@
             <a class="nav-link" href="gioithieuphimhay.php">Giới thiệu phim hay</a>
           </li>
           <li class="nav-item active li-nav">
-            <a class="nav-link" href="admin/index.php">Admin</a>
+            <a class="nav-link" href="./contact.php">Liên hệ</a>
           </li>
         </ul>
-        <form class="search-form form-inline my-2 my-lg-0 searchbar" >
-          <input class="form-control mr-sm-2" type="text" placeholder="Nhập tên phim" aria-label="Search">
+        <form id="searchbox"class="search-form form-inline my-2 my-lg-0 searchbar" action="./search.php" method="get">
+          <input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" placeholder="Nhập tên phim" aria-label="Search" >
           <button type="submit" class="btn btn-search btn-light">
             <i class="fa fa-search" aria-hidden="true"></i>
           </button> 
         </form>
+
+        <!-- 
+        Dong code nay khi nao can dung ajax thi dung 
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+        var jqNew = jQuery.noConflict();
+          jqNew( "#searchbox" ).submit(function( event ) {
+              console.log(jqNew("#keyword").val());
+              event.preventDefault();
+              jqNew.ajax({
+                type: "GET",
+                url: "./search.php",
+                data: jqNew(this).serialize(),
+                success: function (res) {
+                  console.log(JSON.parse(res));
+                },
+              });
+            });
+        </script>
+        -->
       </div>
   </nav>
