@@ -9,7 +9,24 @@
             Tin tức
         </h3>
         <?php
-        $query = "SELECT * FROM posts WHERE post_category_id = 6";
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = '';
+        }
+
+        if ($page == '' || $page == 1) {
+            $page_1 = 0;
+        } else {
+            $page_1 = ($page * 10) - 10;
+        }
+
+        $post_query_count = "SELECT * FROM posts WHERE post_category_id = 6";
+        $find_count = mysqli_query($connection, $post_query_count);
+        $count = mysqli_num_rows($find_count);
+        $count = ceil($count / 10);
+
+        $query = "SELECT * FROM posts WHERE post_category_id = 6 LIMIT $page_1,10";
         $query_seclect_all_posts = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
@@ -37,6 +54,17 @@
         <?php }
         } ?>
 
+        <ul class="pagination justify-content-center">
+            <?php
+            for ($i = 1; $i <= $count; $i++) {
+                if ($i == $page) {
+                    echo "<li class='page-item active'><a class='page-link' href='tintuc.php?page={$i}'>{$i}</a></li>";
+                } else {
+                    echo "<li class='page-item'><a class='page-link' href='tintuc.php?page={$i}'>{$i}</a></li>";
+                }
+            }
+            ?>
+        </ul>
     </div>
     <!-- Sidebar -->
     <?php include "include/side-bar.php"; ?>

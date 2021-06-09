@@ -92,7 +92,7 @@ a:active {
 
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .content {
@@ -191,6 +191,11 @@ nav {
 .post {
   display: flex;
 }
+
+/* .pager li .active_link {
+  background-color: rgb(152, 247, 133) !important;
+} */
+
 .content {
   padding-left: 15px;
 }

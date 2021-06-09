@@ -29,6 +29,7 @@ if (isset($_GET['p_id'])) {
         $post_status = $_POST['post_status'];
         $post_summary = $_POST['post_summary'];
 
+
         $post_image_display = $_FILES['image_display']['name'];
         $post_image_display_temp = $_FILES['image_display']['tmp_name'];
 
@@ -39,7 +40,6 @@ if (isset($_GET['p_id'])) {
         move_uploaded_file($post_image_display_temp, "../images/$post_image_display");
 
         //Trường hợp không chọn ảnh
-
 
         if (empty($post_image_display)) {
             $query = "SELECT * FROM posts WHERE post_id = {$the_post_id}";
@@ -61,7 +61,7 @@ if (isset($_GET['p_id'])) {
         $query .= "post_tags = '{$post_tags}', ";
         $query .= "post_content = '{$post_content}', ";
         $query .= "post_summary = '{$post_summary}', ";
-        $query .= "post_img_display = '{$post_image_display}', ";
+        $query .= "post_img_display = '{$post_image_display}' ";
         $query .= "WHERE post_id = {$the_post_id} ";
 
         $update_post = mysqli_query($connection, $query);
@@ -135,7 +135,6 @@ if (isset($_GET['p_id'])) {
             </select>
         </div>
     </div>
-
 
     <div class="form-group" mb-3>
         <label for="post_image">Ảnh bìa</label>
