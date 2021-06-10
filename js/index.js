@@ -161,18 +161,7 @@ Validator.isRequired = function (selector, message) {
 };
 
 Validator.isEmail = function (selector, message) {
-<<<<<<< HEAD
-  return {
-    selector: selector,
-    test: function (value) {
-      var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      return regex.test(value)
-        ? undefined
-        : message || "Đây không phải là địa chỉ email";
-    },
-  };
-};
-=======
+
     return {
         selector: selector,
         test: function (value) {
@@ -181,7 +170,7 @@ Validator.isEmail = function (selector, message) {
         }
     };
 }
->>>>>>> duyen
+
 
 Validator.minLength = function (selector, min, message) {
   return {
