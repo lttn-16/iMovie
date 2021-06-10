@@ -2,15 +2,22 @@
 <?php include "include/header.php"; ?>
 
 <div class="row " >
+  <div>
+    
+  </div>
   <div class="col-sm-8 logo">
-  <a href="./index.php"><img class="logo__img"  src="./images/logo.jpg" alt="iMovie Logo"></a>
-  <a href="./index.php" class="logo__name">iMovie</a>
+    <a href="./index.php"><img class="logo__img"  src="./images/logo.jpg" alt="iMovie Logo"></a>
+    <a href="./index.php" class="logo__name">iMovie</a>
   </div>
   <div class="col-lg-4">
      <div class="btn_nav">
+        <div class = "admin">
+          <a href="../admin/index.php"><i class="fa fa-user admin__img"></i></a>
+          <a href="../admin/index.php" class="admin__name">ADMIN</a>
+        </div>
         <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>
         <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
-  </div>
+    </div>
   </div>
 </div>
     <!-- Navigation -->
