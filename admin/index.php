@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Xin chào!
-                        <small>nhi</small>
+                        <small><?php echo $_SESSION['username']; ?></small>
                     </h1>
 
 
@@ -32,9 +32,9 @@
                                     <i class="fa fa-file-text fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                <?php
-                                        count_post();
-                                ?>
+                                    <?php
+                                    count_post();
+                                    ?>
                                     <div>Bài viết</div>
                                 </div>
                             </div>
@@ -56,9 +56,9 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                <?php
+                                    <?php
                                     count_comments();
-                                ?>
+                                    ?>
 
                                     <div>Bình luận</div>
                                 </div>
@@ -81,9 +81,9 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                <?php
+                                    <?php
                                     count_user();
-                                ?>
+                                    ?>
 
                                     <div> Users</div>
                                 </div>
@@ -106,9 +106,9 @@
                                     <i class="fa fa-list fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                            <?php
-                                count_categories();
-                            ?>
+                                    <?php
+                                    count_categories();
+                                    ?>
 
                                     <div>Danh mục</div>
                                 </div>
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <!-- /.row -->
-            
+
 
 
         </div>
@@ -134,6 +134,6 @@
     </div>
     <!-- /#page-wrapper -->
 
-    
 
-<?php include "includes/admin_footer.php"; ?>
+
+    <?php include "includes/admin_footer.php"; ?>

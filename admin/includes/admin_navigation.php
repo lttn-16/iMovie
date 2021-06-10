@@ -17,7 +17,11 @@
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                nhi
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo $_SESSION['username'];
+                }
+                ?>
 
                 <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -26,7 +30,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="/"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
+                    <a href="../include/logout.php"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
                 </li>
             </ul>
         </li>
@@ -52,7 +56,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li>
                 <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i>Danh mục</a>
             </li>

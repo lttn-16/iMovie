@@ -161,6 +161,7 @@ Validator.isRequired = function (selector, message) {
 };
 
 Validator.isEmail = function (selector, message) {
+<<<<<<< HEAD
   return {
     selector: selector,
     test: function (value) {
@@ -171,6 +172,16 @@ Validator.isEmail = function (selector, message) {
     },
   };
 };
+=======
+    return {
+        selector: selector,
+        test: function (value) {
+            var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return regex.test(value) ? undefined :  message || 'Vui lòng nhập tên đăng nhập của bạn';
+        }
+    };
+}
+>>>>>>> duyen
 
 Validator.minLength = function (selector, min, message) {
   return {
