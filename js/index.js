@@ -152,7 +152,7 @@ Validator.isEmail = function (selector, message) {
         selector: selector,
         test: function (value) {
             var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            return regex.test(value) ? undefined :  message || 'Đây không phải là địa chỉ email';
+            return regex.test(value) ? undefined :  message || 'Vui lòng nhập tên đăng nhập của bạn';
         }
     };
 }

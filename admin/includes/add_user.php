@@ -15,7 +15,7 @@
 
         $the_user_id = mysqli_insert_id($connection);
 
-        echo "<p class='bg-success'> Thêm người dùng thành công </p>";
+        echo "<p class='bg-success'> Thêm người dùng thành công. ". "<a href='users.php'>Xem người dùng</a></p>";
     }
 
 ?>
