@@ -23,7 +23,7 @@
                 <label for="content">Nội dung</label>
                 <textarea class="form-control" id="content" name="content"  rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Gửi đi</button>
+            <button type="submit" class="btn mb-2" style="background-color:#bd2b35; color:white;">Gửi đi</button>
             </form>
 
     </div>
@@ -34,7 +34,6 @@
     var jqNew = $.noConflict();
     jqNew("#contact").submit(function (event) {
         event.preventDefault();
-        console.log(this);
         jqNew.ajax({
             type: "POST",
             url: './helpers/sendmail.php',

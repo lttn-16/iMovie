@@ -2,51 +2,6 @@
 <?php include "include/header.php"; ?>
 <?php include "admin/admin_function.php"; ?>
 
-<?php 
-    if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        echo $username;
-        die();
-
-        // if(username_exis($username)){
-        //     $message = "User existed";
-        // }
-
-        if(!empty($username) && !empty($password) && !empty($email)){
-
-            $username = mysqli_real_escape_string($connection, $username); //clean data
-            $password = mysqli_real_escape_string($connection, $password);
-            $email = mysqli_real_escape_string($connection, $email);
-    
-            $query = "SELECT randSalt FROM users";
-            $select_randsalt_query = mysqli_query($connection, $query);
-            if(!$select_randsalt_query){
-                die("QUERY FAILED" . mysqli_error($connection));
-            }
-    
-            $row = mysqli_fetch_array($select_randsalt_query);
-            $salt = $row['randSalt'];
-            $password = crypt($password, $salt); //encrypting password
-            
-            $query = "INSERT INTO users (username, user_email, user_password, user_role) ";
-            $query .= "VALUES('{$username}', '{$email}', '$password', 'subscriber')";
-            $register_user_query = mysqli_query($connection, $query);
-            if(!$register_user_query){
-                die("QUERY FAILED" . mysqli_error($connection));
-            }
-            $message = "Your registration has been submitted!";
-        } else {
-            $message = "Fields cannot be empty!";
-        }
-
-       
-    }else {
-        $message = "";
-    }
- ?>
-
     <div class="main">
         <form role="form" action="registration.php" method="POST" class="form" id="form-1" autocomplete="off">
             <!-- <h5><?php echo $message; ?></h5> -->
