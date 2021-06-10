@@ -231,6 +231,16 @@ function count_categories()
     echo "<div class='huge'>{$category_count}</div>";
 }
 
+//Count comments
+function count_comments()
+{
+    global $connection;
+    $query = "SELECT * FROM comments";
+    $count_comment_query = mysqli_query($connection, $query);
+    $comment_count = mysqli_num_rows($count_comment_query);
+    echo "<div class='huge'>{$comment_count}</div>"; 
+}
+
 //Display comments
 function dispaly_all_comments(){
     global $connection;
@@ -244,8 +254,8 @@ function dispaly_all_comments(){
             $row['cmt_status'] = "Nháp";
         }
         $cmt_id = $row['cmt_id'];
+        $comment_post_id = $row['post_id'];
         $cmt_author = $row['cmt_author'];
-        $post_title = $row['post_title'];
         $cmt_content = $row['cmt_content'];
         $cmt_email = $row['cmt_email'];
         $cmt_status = $row['cmt_status'];
@@ -257,7 +267,16 @@ function dispaly_all_comments(){
         echo "<td>{$cmt_content}</td>";
         echo "<td>{$cmt_email}</td>";
         echo "<td>{$cmt_status}</td>";
-        echo "<td>{$post_title}</td>";
+        $query = "SELECT * FROM posts WHERE post_id = {$comment_post_id} "; 
+        $seclect_post_id = mysqli_query($connection,$query);
+
+        while($row = mysqli_fetch_assoc($seclect_post_id)){
+            $post_id = $row['post_id'];
+            $post_title = $row['post_title'];
+                                        
+            echo "<th><a href='../post.php?p_id=$post_id'>{$post_title}</a></th>";
+    
+        }
         echo "<td>{$cmt_date}</td>";
 
         echo " <td><a href='comments.php?approve={$cmt_id}' ><i class='fas fa-check-circle fa-lg'></i></a></td>";

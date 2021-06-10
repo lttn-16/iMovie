@@ -35,7 +35,6 @@
                                 <?php
                                         count_post();
                                 ?>
-
                                     <div>Bài viết</div>
                                 </div>
                             </div>
@@ -58,10 +57,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 <?php
-                                    // $query = "SELECT * FROM comments";
-                                    // $count_comment_query = mysqli_query($connection, $query);
-                                    // $comment_count = mysqli_num_rows($count_comment_query);
-                                    // echo "<div class='huge'>{$comment_count}</div>"; 
+                                    count_comments();
                                 ?>
 
                                     <div>Bình luận</div>
