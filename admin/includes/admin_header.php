@@ -43,4 +43,6 @@
     
    <!-- Custom CSS -->
    <link href="../admin/css/style.css" rel="stylesheet">
+
+   <script src="../js/index1.js"></script>
 <body>
