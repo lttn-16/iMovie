@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+
 html {
   position: relative;
   min-height: 100%;
@@ -72,6 +73,23 @@ a:active {
   text-decoration: none;
 }
 
+.admin {
+  margin-left: 20%;
+  font-size: 25px;
+  margin-top: -15px;
+}
+
+.admin__name {
+  font-family: arial;
+    color: #d32531;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin__name:hover {
+  color:#d32531 ;
+}
 .logo__name:hover {
   color: #d32531;
   text-decoration: none;
@@ -79,8 +97,14 @@ a:active {
 
 .logo__img {
   width: 150px;
-  margin-left: 50%;
+  margin-left: 25%;
   margin-top: -7%;
+}
+
+.admin__img {
+  
+  color: red;
+  margin-right: 5px;;
 }
 
 .menu-icon {
@@ -109,9 +133,17 @@ nav {
   border-radius: 5px;
 }
 
+.admin_nav {
+  margin-top: 60px;
+  margin-left: 0;
+  border-radius: 5px;
+}
+
 .btn-login {
-  width: 120px;
   margin-left: 5px;
+  width: 100px;
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 .card-img-top {
@@ -637,6 +669,10 @@ html {
   .btn_nav {
     margin-left: 50px;
   }
+
+  .admin_nav {
+    margin-left: 50px;
+  }
 }
 
 /*responsive */
@@ -650,6 +686,10 @@ html {
   }
 
   .btn_nav {
+    margin-left: 75px;
+  }
+
+  .admin_nav {
     margin-left: 75px;
   }
 
@@ -677,14 +717,19 @@ html {
     margin-left: 33%;
   }
 
+  .admin_nav {
+    margin: 20px auto;
+    margin-left: 33%;
+  }
+
   .btn-login {
     width: 100px;
     margin-left: 8px;
+    margin-top: 5px;
   }
 
   .logo__img {
     margin-left: 60%;
-
     width: 180px;
     margin-top: 5%;
   }
@@ -785,12 +830,17 @@ html {
   }
 
   .logo__img {
-    margin-left: 61%;
+    margin-left: 65%;
     width: 160px;
     margin-top: 3%;
   }
 
   .btn_nav {
+    margin: 12px auto;
+    margin-left: 32%;
+  }
+
+  .admin_nav {
     margin: 12px auto;
     margin-left: 32%;
   }
@@ -852,6 +902,15 @@ html {
     margin-left: 27%;
   }
 
+  .admin {
+    margin-left: 25%;
+  }
+
+  .admin_nav {
+    margin: 10px auto;
+    margin-left: 27%;
+  }
+
   .footer-col,
   .col-md-3 {
     width: 100%;
@@ -883,7 +942,7 @@ html {
   }
 
   .btn-login {
-    margin: 10px 5px;
+    margin: 5px 5px;
   }
 }
 
@@ -892,6 +951,14 @@ html {
     margin-left: 30%;
   }
   .btn_nav {
+    margin-left: 25%;
+  }
+
+  .admin {
+    margin-left: 20%;
+  }
+
+  .admin_nav {
     margin-left: 25%;
   }
 
@@ -911,6 +978,13 @@ html {
   }
 
   .btn_nav {
+    margin-left: 20%;
+  }
+  .admin {
+    margin-left: 6%;
+  }
+
+  .admin_nav {
     margin-left: 20%;
   }
 }
