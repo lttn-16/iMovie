@@ -3,7 +3,6 @@
   padding: 0;
 }
 
-
 html {
   position: relative;
   min-height: 100%;
@@ -81,14 +80,14 @@ a:active {
 
 .admin__name {
   font-family: arial;
-    color: #d32531;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
+  color: #d32531;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .admin__name:hover {
-  color:#d32531 ;
+  color: #d32531;
 }
 .logo__name:hover {
   color: #d32531;
@@ -97,14 +96,13 @@ a:active {
 
 .logo__img {
   width: 150px;
-  margin-left: 25%;
+  margin-left: 50%;
   margin-top: -7%;
 }
 
 .admin__img {
-  
   color: red;
-  margin-right: 5px;;
+  margin-right: 5px;
 }
 
 .menu-icon {
