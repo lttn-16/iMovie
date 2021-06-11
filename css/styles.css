@@ -97,7 +97,7 @@ a:active {
 
 .logo__img {
   width: 150px;
-  margin-left: 25%;
+  margin-left: 50%;
   margin-top: -7%;
 }
 
@@ -702,6 +702,12 @@ html {
   }
 }
 
+@media (max-width: 1200px) {
+  .logo__img {
+    margin-left: 35%;
+  }
+}
+
 @media (max-width: 1024px) {
   .menu-wrap {
     display: none;
@@ -969,7 +975,7 @@ html {
   }
 
   .logo__img {
-    margin-left: 30%;
+    margin-left: 10%;
   }
 
   .btn_nav {
