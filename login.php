@@ -2,6 +2,7 @@
 <?php include "include/header.php"; ?>
 <?php session_start(); ?>
 <?php
+$message = '';
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -29,13 +30,14 @@ if (isset($_POST['login'])) {
         $_SESSION['user_role'] = $db_user_role;
         header("Location: index.php");
     } else {
-        //header("Location: ../index.php");
+        $message = 'Tên đăng nhập hoặc mật khẩu chưa chính xác!';
     }
 }
 ?>
 
 <div class="main">
     <form action="" method="POST" class="form" id="form-2">
+        <h5><?php echo $message; ?></h5>
         <div class="form-header">
             <img class="form-logo" src="./images/logo.jpg" alt="logo">
             <h3 class="heading">Đăng nhập</h3>
