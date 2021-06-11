@@ -21,6 +21,15 @@
     CKFinder.setupCKEditor( editor );
 
 
+    //user online
+    function loadUsersOnline(){
+        $.get("admin_function.php?onlineusers=result", function(data){
+            $(".useronline").text(data);
+        });
+    }
+    setInterval(function(){
+        loadUsersOnline();
+    }, 500);
 });
 
 

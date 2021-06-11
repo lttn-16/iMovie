@@ -99,17 +99,17 @@ function get_checkBox()
             switch ($bulk_options) {
                 case 'published':
                     $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$checkBoxValue}  ";
-                    $update_status = mysqli_query($connection, $query);
+                    mysqli_query($connection, $query);
                     break;
 
                 case 'draft':
                     $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$checkBoxValue}  ";
-                    $update_status = mysqli_query($connection, $query);
+                    mysqli_query($connection, $query);
                     break;
 
                 case 'delete':
                     $query = "DELETE FROM posts WHERE post_id = {$checkBoxValue}  ";
-                    $update_status = mysqli_query($connection, $query);
+                    mysqli_query($connection, $query);
                     break;
             }
         }
@@ -238,17 +238,18 @@ function count_comments()
     $query = "SELECT * FROM comments";
     $count_comment_query = mysqli_query($connection, $query);
     $comment_count = mysqli_num_rows($count_comment_query);
-    echo "<div class='huge'>{$comment_count}</div>"; 
+    echo "<div class='huge'>{$comment_count}</div>";
 }
 
 //Display comments
-function dispaly_all_comments(){
+function dispaly_all_comments()
+{
     global $connection;
     $query = "SELECT * FROM comments, posts WHERE comments.post_id = posts.post_id";
     $select_cmts = mysqli_query($connection, $query);
 
-    while($row = mysqli_fetch_array($select_cmts)){
-        if($row['cmt_status']==1){
+    while ($row = mysqli_fetch_array($select_cmts)) {
+        if ($row['cmt_status'] == 1) {
             $row['cmt_status'] = "Xuất bản";
         } else {
             $row['cmt_status'] = "Nháp";
@@ -259,7 +260,7 @@ function dispaly_all_comments(){
         $cmt_content = $row['cmt_content'];
         $cmt_email = $row['cmt_email'];
         $cmt_status = $row['cmt_status'];
-        $cmt_date =$row['cmt_date'];
+        $cmt_date = $row['cmt_date'];
 
         echo "<tr class='center'>";
         echo "<td>{$cmt_id}</td>";
@@ -267,15 +268,14 @@ function dispaly_all_comments(){
         echo "<td>{$cmt_content}</td>";
         echo "<td>{$cmt_email}</td>";
         echo "<td>{$cmt_status}</td>";
-        $query = "SELECT * FROM posts WHERE post_id = {$comment_post_id} "; 
-        $seclect_post_id = mysqli_query($connection,$query);
+        $query = "SELECT * FROM posts WHERE post_id = {$comment_post_id} ";
+        $seclect_post_id = mysqli_query($connection, $query);
 
-        while($row = mysqli_fetch_assoc($seclect_post_id)){
+        while ($row = mysqli_fetch_assoc($seclect_post_id)) {
             $post_id = $row['post_id'];
             $post_title = $row['post_title'];
-                                        
+
             echo "<th><a href='../post.php?p_id=$post_id'>{$post_title}</a></th>";
-    
         }
         echo "<td>{$cmt_date}</td>";
 
@@ -288,18 +288,19 @@ function dispaly_all_comments(){
 }
 
 //Delete comment
-function delete_comment(){
+function delete_comment()
+{
     global $connection;
 
-    if(isset($_GET['delete'])){
+    if (isset($_GET['delete'])) {
         //Delete comment
         $cmt_id = $_GET['delete'];
 
         $query = "DELETE FROM comments WHERE cmt_id = $cmt_id";
         $delete_query = mysqli_query($connection, $query);
         confirm($delete_query);
-        header("Location: comments.php"); 
-    } elseif(isset($_GET['approve'])){
+        header("Location: comments.php");
+    } elseif (isset($_GET['approve'])) {
         //Approve comment
         $cmt_id = $_GET['approve'];
 
@@ -307,7 +308,7 @@ function delete_comment(){
         $delete_query = mysqli_query($connection, $query);
         confirm($delete_query);
         header("Location: comments.php");
-    } elseif(isset($_GET['not-approve'])){
+    } elseif (isset($_GET['not-approve'])) {
         //Not approve comment
         $cmt_id = $_GET['not-approve'];
 
@@ -317,4 +318,38 @@ function delete_comment(){
         header("Location: comments.php");
     }
 }
+
+function online_users()
+{
+    if (isset($_GET['onlineusers'])) {
+
+        global $connection;
+
+        if (!$connection) {
+            session_start();
+
+            include("../include/db.php");
+
+            $session = session_id();
+            $time = time();
+            $time_out_in_seconds = 30;
+            $time_out = $time - $time_out_in_seconds;
+
+            $query = "SELECT * FROM users_online WHERE session = '$session'";
+            $send_query = mysqli_query($connection, $query);
+            $count = mysqli_num_rows($send_query);
+
+            if ($count == NULL) {
+                mysqli_query($connection, "INSERT INTO users_online(session, time) VALUES('$session', '$time') ");
+            } else {
+                mysqli_query($connection, "UPDATE users_online SET time ='$time' WHERE session = '$session' ");
+            }
+
+            $user_online_query = mysqli_query($connection, "SELECT * FROM users_online WHERE time > '$time_out'");
+            echo $count_user = mysqli_num_rows($user_online_query);
+        }
+    }
+}
+
+online_users();
 ?>
