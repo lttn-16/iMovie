@@ -95,20 +95,19 @@
 
         <!-- Comment Form -->
         <?php
-            if(isset($_POST['comment'])){
-                $p_id = $_GET['p_id'];
-                $cmt_author = $_POST['cmt_author'];
-                $cmt_email = $_POST['cmt_email'];
-                $cmt_content = $_POST['cmt_content'];
-                $cmt_date = date("Y-m-d H:i:s");
-                $cmt_status = 0;
+                    if (isset($_POST['comment'])) {
+                        $p_id = $_GET['p_id'];
+                        $cmt_author = $_POST['cmt_author'];
+                        $cmt_email = $_POST['cmt_email'];
+                        $cmt_content = $_POST['cmt_content'];
+                        $cmt_date = date("Y-m-d H:i:s");
+                        $cmt_status = 0;
 
-                if(isset($cmt_author) && isset($cmt_email) && isset($cmt_content)){
-                    $sql = "INSERT INTO comments(post_id, cmt_author, cmt_content, cmt_date, cmt_email, cmt_status) VALUES ($p_id, '$cmt_author', '$cmt_content', '$cmt_date', '$cmt_email', $cmt_status);";
-                    $query = mysqli_query($connection, $sql);
-                    
-                }
-            }
+                        if (isset($cmt_author) && isset($cmt_email) && isset($cmt_content)) {
+                            $sql = "INSERT INTO comments(post_id, cmt_author, cmt_content, cmt_date, cmt_email, cmt_status) VALUES ($p_id, '$cmt_author', '$cmt_content', '$cmt_date', '$cmt_email', $cmt_status);";
+                            $query = mysqli_query($connection, $sql);
+                        }
+                    }
         ?>
         <div class="comment">
             <h4><b>Bình luận:</b></h4>
@@ -131,37 +130,40 @@
         <!-- End Comment Form -->
 
         <?php
-            $p_id = $_GET['p_id'];
-            $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
-            $query_cmt = mysqli_query($connection, $sql_cmt);
-            $total_cmt = mysqli_num_rows($query_cmt);
-            if($total_cmt > 0 ){
-        ?>
-        <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
-        <!-- Reply Zone -->
-        <div class="row">
-        <?php
-                while($row = mysqli_fetch_array($query_cmt)){
-                    if($row['cmt_status']==1){
-            ?>
-            <div class="col-sm-2 text-center">
-                <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-            </div>
-            <div class="col-sm-10">
-                <h4> <?php echo $row['cmt_author'] ?> <small><?php echo $row['cmt_date'] ?></small></h4>
-                <p><?php echo $row['cmt_content'] ?></p>
-                <br>
-            </div>
-            <?php 
-                }
-            }
-            ?>
+                    $p_id = $_GET['p_id'];
+                    $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
+                    $query_cmt = mysqli_query($connection, $sql_cmt);
+                    $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
+                    $count_cmt = mysqli_query($connection, $sql_count_cmt);
+                    $total_cmt = mysqli_num_rows($count_cmt);
+                    if ($total_cmt > 0) {
 
-            <!-- End Reply Zone -->
-            <!-- End Comment zone -->
-        </div>
-        <?php 
-            }
+        ?>
+            <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
+            <!-- Reply Zone -->
+            <div class="row">
+                <?php
+                        while ($row = mysqli_fetch_array($query_cmt)) {
+                            if ($row['cmt_status'] == 1) {
+                ?>
+                        <div class="col-sm-2 text-center">
+                            <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                        </div>
+                        <div class="col-sm-10">
+                            <h4> <?php echo $row['cmt_author'] ?> <small><?php echo $row['cmt_date'] ?></small></h4>
+                            <p><?php echo $row['cmt_content'] ?></p>
+                            <br>
+                        </div>
+                <?php
+                            }
+                        }
+                ?>
+
+                <!-- End Reply Zone -->
+                <!-- End Comment zone -->
+            </div>
+        <?php
+                    }
         ?>
         <!-- End Post -->
     </div>

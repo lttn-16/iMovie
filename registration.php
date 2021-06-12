@@ -1,6 +1,7 @@
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
 <?php include "admin/admin_function.php" ?>
+<script src="https://kit.fontawesome.com/b4547f4381.js" crossorigin="anonymous"></script>
 <?php
 
 $message = '';
@@ -38,8 +39,10 @@ if (isset($_POST['username'])) {
 }
 
 ?>
+
 <div class="main">
     <form role="form" action="registration.php" method="post" class="form" id="form-1">
+        <div><a href="index.php" class="btn btn-danger btn-sm icon-back"><i class="fas fa-arrow-left"></i></a></div>
         <h5><?php echo $message; ?></h5>
         <div class="form-header">
             <img class="form-logo" src="./images/logo.jpg" alt="logo">

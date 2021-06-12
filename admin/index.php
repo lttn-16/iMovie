@@ -124,16 +124,79 @@
                     </div>
                 </div>
             </div>
+            <br>
             <!-- /.row -->
+            <?php
+
+            $query = "SELECT * FROM posts WHERE post_status = 'draft'";
+            $select_draft_post = mysqli_query($connection, $query);
+            $draft_count = mysqli_num_rows($select_draft_post);
+
+            $query = "SELECT * FROM posts WHERE post_status = 'published'";
+            $select_publish_post = mysqli_query($connection, $query);
+            $publish_count = mysqli_num_rows($select_publish_post);
 
 
+            $query = "SELECT * FROM comments WHERE cmt_status = 0";
+            $select_unapproved = mysqli_query($connection, $query);
+            $unapproved_count = mysqli_num_rows($select_unapproved);
+
+            $query = "SELECT * FROM comments WHERE cmt_status = 1";
+            $select_approved = mysqli_query($connection, $query);
+            $approved_count = mysqli_num_rows($select_approved);
+
+
+            $query = "SELECT * FROM users WHERE user_role = 'subcriber'";
+            $select_subcriber = mysqli_query($connection, $query);
+            $subcriber_count = mysqli_num_rows($select_subcriber);
+
+            $query = "SELECT * FROM users WHERE user_role = 'admin'";
+            $select_admin = mysqli_query($connection, $query);
+            $admin_count = mysqli_num_rows($select_admin);
+
+            ?>
+
+            <div class="row">
+                <script type="text/javascript">
+                    google.charts.load('current', {
+                        'packages': ['bar']
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Data', 'Count'],
+
+                            <?php
+                            $element_text = ['Xuất bản', 'Nháp', 'Bình luận Duyệt', 'Bình luận Không duyệt', 'Amin', 'Subcriber'];
+                            $element_count = [$publish_count, $draft_count, $approved_count, $unapproved_count, $admin_count, $subcriber_count];
+                            for ($i = 0; $i < 6; $i++) {
+                                echo "['{$element_text[$i]}'," . " {$element_count[$i]}],";
+                            }
+                            ?>
+                        ]);
+
+                        var options = {
+                            chart: {
+                                title: 'Thống kê số liệu',
+                                subtitle: '',
+                            }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+                </script>
+                <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+
+
+            </div>
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /.container-fluid -->
-
-    </div>
-    <!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->
 
 
 
-    <?php include "includes/admin_footer.php"; ?>
+        <?php include "includes/admin_footer.php"; ?>

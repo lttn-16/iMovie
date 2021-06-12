@@ -109,6 +109,12 @@ a:active {
   display: none;
 }
 
+.icon-back {
+  float: left;
+  margin-top: -5%;
+  width: 45px !important;
+}
+
 .navbar-expand-md {
   background-color: #d32531;
 

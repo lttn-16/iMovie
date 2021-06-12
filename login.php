@@ -1,8 +1,11 @@
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
 <?php session_start(); ?>
+<script src="https://kit.fontawesome.com/b4547f4381.js" crossorigin="anonymous"></script>
 <?php
+$db_user_password = '';
 $message = '';
+$db_username = '';
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -30,13 +33,14 @@ if (isset($_POST['login'])) {
         $_SESSION['user_role'] = $db_user_role;
         header("Location: index.php");
     } else {
-        $message = 'Tên đăng nhập hoặc mật khẩu chưa chính xác!';
+        $message = 'Sai tên đăng nhập hoặc mật khẩu!';
     }
 }
 ?>
 
 <div class="main">
     <form action="" method="POST" class="form" id="form-2">
+        <div><a href="index.php" class="btn btn-danger btn-sm icon-back"><i class="fas fa-arrow-left"></i></a></div>
         <h5><?php echo $message; ?></h5>
         <div class="form-header">
             <img class="form-logo" src="./images/logo.jpg" alt="logo">
