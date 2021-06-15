@@ -90,22 +90,4 @@ if (isset($_POST['login'])) {
     </form>
 </div>
 
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Validator({
-            form: '#form-2',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-                Validator.isEmail('#email'),
-                Validator.minLength('#password', 6),
-            ],
-            onSubmit: function(data) {
-                // Call API
-                console.log(data);
-            }
-        });
-    });
-</script> -->
-
 <?php include "include/end.php"; ?>
