@@ -18,7 +18,7 @@
           </div>
       <?php }
       } ?>
-      <?php if (isset($_SESSION['user_role'])) : ?>
+      <?php if ((isset($_SESSION['user_role'])) || (isset($_SESSION['access_token']))) : ?>
         <a href="include/logout.php"><button type="submit" class="btn btn-login btn-success">Đăng xuất</button></a>
       <?php else : ?>
         <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>

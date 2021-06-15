@@ -1,6 +1,11 @@
 <?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
-<?php session_start(); ?>
+
+<?php
+    require_once "config.php";
+
+	$loginURL = $gClient->createAuthUrl();
+?>
 <script src="https://kit.fontawesome.com/b4547f4381.js" crossorigin="anonymous"></script>
 <?php
 $db_user_password = '';
@@ -77,7 +82,7 @@ if (isset($_POST['login'])) {
             <p class="textgoogleaccount">Bạn có tài khoản Google?</p>
 
             <div class="col-xs-12 col-md-12 col-sm-12">
-                <a class="badge badge-light googlesignupbutton">
+                <a href="<?php echo $loginURL ?>" class="badge badge-light googlesignupbutton">
                     <img src="./images/google.jpg" alt="google logo" class="googlelogo">
                     Đăng nhập với tài khoản Google
                 </a>
