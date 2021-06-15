@@ -820,6 +820,10 @@ html {
     color: #fff;
     margin: 5px 0;
   }
+
+  .admin {
+    margin-left: 17%;
+  }
 }
 
 @media (max-width: 769px) {
@@ -881,6 +885,10 @@ html {
 
   .footer {
     padding-top: 30px;
+  }
+
+  .admin {
+    margin-left: 21%;
   }
 }
 
@@ -948,9 +956,17 @@ html {
   .btn-login {
     margin: 5px 5px;
   }
+
+  .admin {
+    margin-left: 22%;
+  }
 }
 
 @media (max-width: 420px) {
+  .logo__img {
+    margin-left: 34%;
+  }
+
   .searchbar {
     margin-left: 30%;
   }
@@ -985,7 +1001,7 @@ html {
     margin-left: 20%;
   }
   .admin {
-    margin-left: 6%;
+    margin-left: 22%;
   }
 
   .admin_nav {

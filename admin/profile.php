@@ -1,5 +1,9 @@
 <?php include "includes/admin_header.php" ?>
 
+<?php
+edit_profile()
+?>
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -15,25 +19,20 @@
                     <h1 class="page-header">
                         Thông tin người dùng
                     </h1>
+                    <?php echo $message; ?>
                     <form method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="user_firstname">Họ và tên</label>
-                            <input type="text" name="user_firstname" value="" class="form-control">
-                        </div>
-
-                        
 
                         <div class="form-group">
-                            <label for="user_lastname">Vai trò</label>
-                            <br>
+                            <div><label for="user_role">Vai trò</label></div>
                             <select name="user_role">
-                                <option value="subcriber">
-                                    subcriber
-                                </option>
-                                <option value="admin">
-                                    admin
-                                </option>
-
+                                <option value="admin"><?php echo $user_role ?></option>
+                                <?php
+                                if ($user_role == 'admin') {
+                                    echo "<option value='subcriber'>subcriber</option>";
+                                } else {
+                                    echo "<option value='admin'>admin</option>";
+                                }
+                                ?>
 
                             </select>
                         </div>
@@ -42,17 +41,17 @@
 
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" value="<?php echo "{$username}" ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="user_email">Email</label>
-                            <input type="email" name="user_email" class="form-control">
+                            <input type="email" name="user_email" value="<?php echo "{$user_email}" ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="user_password">Password</label>
-                            <input type="password" name="user_password" class="form-control">
+                            <input type="password" name="user_password" value="<?php echo "{$password}" ?>" class="form-control">
                         </div>
 
                         <div class="form-group">

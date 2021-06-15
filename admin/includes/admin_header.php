@@ -6,7 +6,7 @@
 <!-- đăng nhập mới vào đc page admin -->
 <?php
 if (!isset($_SESSION['user_role'])) {
-    header("Location: ../index.php");
+    header("Location: ../login.php");
 }
 ?>
 

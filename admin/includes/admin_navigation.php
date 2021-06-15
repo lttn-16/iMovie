@@ -1,3 +1,4 @@
+<?php include "../include/function.php" ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -11,7 +12,6 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-
         <li><a href="">Users Online: <span class="useronline"></span></a></li>
         <li><a href="../index.php">HOME SITE</a></li>
 
@@ -84,3 +84,18 @@
 
     <!-- /.navbar-collapse -->
 </nav>
+<script>
+    <?php if (isset($_SESSION['user_role'])) { ?>
+
+        function loadUsersOnline() {
+            $.get("../include/function.php?onlineusers=result", function(data) {
+                $(".useronline").text(data);
+            });
+        }
+        setInterval(function() {
+            loadUsersOnline();
+        }, 500);
+    <?php } else { ?>
+        $(".useronline").text("0");
+    <?php } ?>
+</script>

@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
     //user online
-    function loadUsersOnline(){
-            $.get("admin_function.php?onlineusers=result", function(data){
-                $(".useronline").text(data);
-            });
-    }
+    // function loadUsersOnline(){
+    //     $.get("admin_function.php?onlineusers=result", function(data){
+    //         $(".useronline").text(data);
+    //             });
+    // }
 
-    setInterval(function(){
-        loadUsersOnline();
-    }, 500);
+    // setInterval(function(){
+    //     loadUsersOnline();
+    // }, 500);
     
     //Select all checkbox
     $('#selectAllBoxes').click(function(e){

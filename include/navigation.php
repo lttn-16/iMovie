@@ -1,4 +1,3 @@
-<?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
 <?php session_start(); ?>
 
@@ -12,6 +11,7 @@
       <?php if (isset($_SESSION['user_role'])) {
         if ($_SESSION['user_role'] == 'admin') {
       ?>
+
           <div class="admin">
             <a href="admin/index.php"><i class="fa fa-user admin__img"></i></a>
             <a href="admin/index.php" class="admin__name">ADMIN</a>

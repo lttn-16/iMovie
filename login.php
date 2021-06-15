@@ -24,13 +24,17 @@ if (isset($_POST['login'])) {
         $db_username = $row['username'];
         $db_user_password = $row['user_password'];
         $db_user_role = $row['user_role'];
+        $db_user_email = $row['user_email'];
     }
 
     $password = crypt($password, $db_user_password); //uncrypt
 
     if ($username === $db_username && $password === $db_user_password) {
+        $_SESSION['userId'] = $db_user_id;
         $_SESSION['username'] = $db_username;
         $_SESSION['user_role'] = $db_user_role;
+        $_SESSION['user_password'] = $db_user_password;
+        $_SESSION['user_email'] = $db_user_email;
         header("Location: index.php");
     } else {
         $message = 'Sai tên đăng nhập hoặc mật khẩu!';

@@ -178,7 +178,7 @@
 
                         var options = {
                             chart: {
-                                title: 'Thống kê số liệu',
+                                title: 'Số liệu tổng quan',
                                 subtitle: '',
                             }
                         };
@@ -189,6 +189,63 @@
                     }
                 </script>
                 <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+
+
+            </div>
+
+            <!-- category chart -->
+            <br>
+            <?php
+            $category = array();
+            for ($i = 1; $i <= 7; $i++) {
+                $query = "SELECT * FROM posts WHERE post_category_id = $i";
+                $count_posts = mysqli_query($connection, $query);
+                $count =  mysqli_num_rows($count_posts);
+                array_push($category, $count);
+            }
+            $name = array();
+            for ($i = 1; $i <= 7; $i++) {
+                $query = "SELECT * FROM category WHERE cat_id = $i";
+                $select_title = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($select_title)) {
+                    $title = $row['cat_title'];
+                    array_push($name, $title);
+                }
+            }
+            ?>
+            <div class="row">
+                <script type="text/javascript">
+                    google.charts.load('current', {
+                        'packages': ['bar']
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Danh mục', 'Count'],
+
+                            <?php
+                            $element_text = [$name[0], $name[1], $name[2], $name[3], $name[4], $name[5], $name[6]];
+                            $element_count = [$category[0], $category[1], $category[2], $category[3], $category[4], $category[5], $category[6]];
+                            for ($i = 0; $i < 7; $i++) {
+                                echo "['{$element_text[$i]}'," . " {$element_count[$i]}],";
+                            }
+                            ?>
+                        ]);
+
+                        var options = {
+                            chart: {
+                                title: 'Bài viết theo Danh mục',
+                                subtitle: '',
+                            }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('columnchart_material1'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+                </script>
+                <div id="columnchart_material1" style="width: 'auto'; height: 500px;"></div>
 
 
             </div>

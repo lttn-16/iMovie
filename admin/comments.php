@@ -1,36 +1,35 @@
 <?php include "includes/admin_header.php" ?>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-        <?php include "includes/admin_navigation.php" ?>
+    <!-- Navigation -->
+    <?php include "includes/admin_navigation.php" ?>
 
-        <div id="page-wrapper">
+    <div id="page-wrapper">
 
-            <div class="container-fluid">
+        <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Tất cả bình luận
-                            
-                        </h1>
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tất cả bình luận
+                    </h1>
 
-                      <?php 
+                    <?php
 
-                        include "includes/view_all_comments.php";
-                        
-                      ?>
+                    include "includes/view_all_comments.php";
 
-                    </div>
+                    ?>
+
                 </div>
-                <!-- /.row -->
-
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
 
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
 
-<?php include "includes/admin_footer.php"; ?>
+    </div>
+    <!-- /#page-wrapper -->
+
+    <?php include "includes/admin_footer.php"; ?>

@@ -1,54 +1,14 @@
-<?php
-if (isset($_GET['us_id'])) {
-    $the_user_id = $_GET['us_id'];
+<?php edit_user(); ?>
 
-    $query = "SELECT * FROM users WHERE user_id = $the_user_id";
-    $select_users_query = mysqli_query($connection, $query);
-
-    while ($row = mysqli_fetch_assoc($select_users_query)) {
-        $user_id = $row['user_id'];
-        $username = $row['username'];
-        $user_password = $row['user_password'];
-        $user_email = $row['user_email'];
-        $user_role = $row['user_role'];
-    }
-}
-if (isset($_POST['edit_user'])) {
-
-    $user_role = $_POST['user_role'];
-    $username = $_POST['username'];
-    $user_email = $_POST['user_email'];
-    $user_password = $_POST['user_password'];
-
-
-    // $query = "SELECT randSalt FROM users";
-    // $select_randsalt_query = mysqli_query($connection, $query);
-    // confirm($select_randsalt_query);
-    // $row = mysqli_fetch_array($select_randsalt_query);
-    // $salt = $row['randSalt'];
-    // $hashed_password = crypt($user_password, $salt); 
-
-    $query = "UPDATE users SET ";
-    $query .= "user_role = '{$user_role}', ";
-    $query .= "username = '{$username}', ";
-    $query .= "user_email = '{$user_email}', ";
-    // $query .= "user_password = '{$hashed_password}' ";
-    $query .= "WHERE user_id = {$the_user_id} ";
-
-    $update_users = mysqli_query($connection, $query);
-    confirm($update_users);
-    echo "<p class='bg-success'>User updated: " . "<a href='users.php'>View Users</a></p>";
-}
-
-?>
-
+<!-- Chỉnh sửa người dùng -->
 <h1 class="page-header">
     Chỉnh sửa người dùng
-
 </h1>
+<?php echo $message; ?>
 <form method="post" enctype="multipart/form-data">
 
     <div class="form-group">
+        <div><label for="user_role">Vai trò</label></div>
         <select name="user_role">
             <option value="<?php echo $user_role ?>"><?php echo $user_role ?></option>
             <?php
@@ -74,10 +34,10 @@ if (isset($_POST['edit_user'])) {
 
     <div class="form-group">
         <label for="user_password">Password</label>
-        <input type="password" name="user_password" value="<?php echo "{$user_password}" ?>" class="form-control">
+        <input type="password" name="user_password" value="<?php echo "{$password}" ?>" class="form-control">
     </div>
 
     <div class="form-group">
-        <input type="submit" name="edit_user" class="btn btn-primary" value="Edit User">
+        <input type="submit" name="edit_user" class="btn btn-primary" value="Cập nhật">
     </div>
 </form>

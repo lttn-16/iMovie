@@ -34,7 +34,7 @@ if (isset($_POST['username'])) {
         $create_user_query = mysqli_query($connection, $query);
 
         confirm($create_user_query);
-        $message = "Đăng ký thành công";
+        $message = "<h5>Đăng ký thành công! " . "<a href='login.php'>Đăng nhập ngay!</a></h5>";
     }
 }
 

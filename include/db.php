@@ -1,4 +1,3 @@
-<!-- connect database -->
 <?php
 $db['db_host'] = 'local';
 $connection = mysqli_connect('localhost', 'root', '', 'imovie');
@@ -6,4 +5,3 @@ $connection = mysqli_connect('localhost', 'root', '', 'imovie');
 // if($connection){
 //     echo "yes connected!";
 // }
-?>
