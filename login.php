@@ -2,9 +2,8 @@
 <?php include "include/header.php"; ?>
 
 <?php
-    require_once "config.php";
-
-	$loginURL = $gClient->createAuthUrl();
+require_once "config.php";
+$loginURL = $gClient->createAuthUrl();
 ?>
 <script src="https://kit.fontawesome.com/b4547f4381.js" crossorigin="anonymous"></script>
 <?php
