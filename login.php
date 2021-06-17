@@ -14,7 +14,7 @@ $remember_password = '';
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $remember_password =$_POST['password'];
+    $remember_password = $_POST['password'];
 
     $username = mysqli_real_escape_string($connection, $username); //clean data
     $password = mysqli_real_escape_string($connection, $password);
@@ -41,18 +41,16 @@ if (isset($_POST['login'])) {
         $_SESSION['user_role'] = $db_user_role;
         $_SESSION['user_password'] = $db_user_password;
         $_SESSION['user_email'] = $db_user_email;
-        
+
         if (isset($_POST['remember'])) {
 
-            setcookie('remember_user', $username,time() + 86400 );
-            setcookie('remember_password', $remember_password,time() + 86400 );
+            setcookie('remember_user', $username, time() + 86400);
+            setcookie('remember_password', $remember_password, time() + 86400);
 
             header("Location: index.php");
-        }else {
+        } else {
             header("Location: index.php");
         }
-
-        
     } else {
         $message = 'Sai tên đăng nhập hoặc mật khẩu!';
     }
@@ -70,13 +68,17 @@ if (isset($_POST['login'])) {
 
         <div class="form-group">
             <label class="form-label" for="email">Tên đăng nhập</label>
-            <input type="text" name="username" class="form-control" placeholder="Nhập username" value="<?php if(isset($_COOKIE['remember_user'])) { echo $_COOKIE['remember_user']; }?>">
+            <input type="text" name="username" class="form-control" placeholder="Nhập username" value="<?php if (isset($_COOKIE['remember_user'])) {
+                                                                                                            echo $_COOKIE['remember_user'];
+                                                                                                        } ?>">
             <span class="form-message"></span>
         </div>
 
         <div class="form-group">
             <label class="form-label" for="password">Mật khẩu</label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Nhập mật khẩu" value="<?php if(isset($_COOKIE['remember_password'])) { echo $_COOKIE['remember_password']; }?>">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Nhập mật khẩu" value="<?php if (isset($_COOKIE['remember_password'])) {
+                                                                                                                                echo $_COOKIE['remember_password'];
+                                                                                                                            } ?>">
             <span class="form-message"></span>
         </div>
 
