@@ -1,39 +1,12 @@
 <?php
-
-if (isset($_POST['create_post'])) {
-    $post_title = $_POST['title'];
-    $post_author = $_POST['post_author'];
-    $post_category_id = $_POST['post_category'];
-    $post_status = $_POST['post_status'];
-    $post_summary = $_POST['summary'];
-
-    $post_image_display = $_FILES['image_display']['name'];
-    $post_image_display_temp = $_FILES['image_display']['tmp_name'];
-
-    $post_tags = $_POST['post_tags'];
-    $post_content = $_POST['post_content'];
-    $post_date = date('d-m-y');
-
-    move_uploaded_file($post_image_display_temp, "../images/$post_image_display");
-
-    $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, 
-        post_img_display, post_content, post_summary, post_tags, post_status) ";
-
-    $query .= "VALUES({$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image_display}','{$post_content}','{$post_summary}', '{$post_tags}', '{$post_status}')";
-
-    $create_post_query = mysqli_query($connection, $query);
-
-    confirm($create_post_query);
-
-    $the_post_id = mysqli_insert_id($connection); //the last id had been created
-    echo "<p class='bg-success'>Post created: " . "<a href='../post.php?p_id={$the_post_id}'>View Posts</a> or <a href='posts.php'>Edit More Posts</a></p>";
-}
-
+add_posts();
 ?>
+
+<!-- Thêm Bài viết -->
 <h1 class="page-header">
     Thêm Bài viết
-
 </h1>
+<?php echo $message; ?>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Tên bài viết</label>
@@ -45,17 +18,8 @@ if (isset($_POST['create_post'])) {
         <div>
             <select name="post_category" id="post_category">
                 <?php
-                $query = "SELECT * FROM category ";
-                $seclect_categories = mysqli_query($connection, $query);
-
-                confirm($seclect_categories);
-                while ($row = mysqli_fetch_assoc($seclect_categories)) {
-                    $cat_id = $row['cat_id'];
-                    $cat_title = $row['cat_title'];
-                    echo "<option value='{$cat_id}'>{$cat_title}</option>";
-                }
+                select_category_in_post();
                 ?>
-
             </select>
         </div>
     </div>

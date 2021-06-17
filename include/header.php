@@ -1,3 +1,7 @@
+<?php ob_start() ?>
+<?php include "db.php"; ?>
+<?php include_once "function.php"; ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -26,6 +30,7 @@
     <!-- Chèn file css dô đây -->
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
     <script src="./js/index.js"></script>
+    <!-- <script src="../admin/js/scripts.js"></script> -->
 </head>
 
 <body>

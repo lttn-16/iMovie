@@ -1,4 +1,4 @@
-<!-- Review phim tình cảm -->
+<!-- Trang tin tức -->
 
 <!-- Navigation -->
 <?php include "./include/navigation.php"; ?>
@@ -6,60 +6,69 @@
 <div class="container container-index">
     <div class="left">
         <h3 class="block-title">
-        Phim tình cảm
+            Phim kinh dị
         </h3>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/co-gai-tre.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review và giải thích ý nghĩa phim Promising Young Woman (Cô Gái Trẻ Hứa Hẹn)</a>
-                                <p class="date">5/4/2021</p>
-                                <span>Review phim Promising Young Woman (Cô Gái Trẻ Hứa Hẹn) - tác phẩm đầu tay của đạo diễn Emerald Fennell mang đến một câu chuyện mới lạ, bất ngờ nhưng cũng đầy tính chiêm nghiệm.</span>
-                            </div>
+        <?php
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = '';
+        }
+
+        if ($page == '' || $page == 1) {
+            $page_1 = 0;
+        } else {
+            $page_1 = ($page * 10) - 10;
+        }
+
+        $post_query_count = "SELECT * FROM posts WHERE post_category_id = 1";
+        $find_count = mysqli_query($connection, $post_query_count);
+        $count = mysqli_num_rows($find_count);
+        $count = ceil($count / 10);
+
+        $query = "SELECT * FROM posts WHERE post_category_id = 1 LIMIT $page_1,10";
+        $query_seclect_all_posts = mysqli_query($connection, $query);
+
+        while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
+            $post_title = $row['post_title'];
+            $post_id = $row['post_id'];
+            $post_author = $row['post_author'];
+            $post_date = $row['post_date'];
+            $post_image_display = $row['post_img_display'];
+            $post_status = $row['post_status'];
+            $post_summary = $row['post_summary'];
+            if ($post_status == 'published') {
+        ?>
+                <div class="row row-index">
+                    <div class="post">
+                        <a href="post.php?p_id=<?php echo $post_id ?>">
+                            <img class="index-img" src="./images/<?php echo $post_image_display; ?>">
+                        </a>
+                        <div class="content">
+                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
+                            <p class="date"><?php echo $post_date ?></p>
+                            <span><?php echo $post_summary ?></span>
                         </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/minari.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review và giải thích ý nghĩa phim Minari (Khát Vọng Đổi Đời)</a>
-                                <p class="date">16/3/2021</p>
-                                <span>Review phim Minari (Khát Vọng Đổi Đời) là một tác phẩm chậm, nhẹ nhàng nhiều hình ảnh ẩn dụ ý nghĩa về những người Á Đông với khát vọng đổi đời nơi đất khách.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/lua-deu-gap-lua-dao.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review phim Lừa Đểu Gặp Lừa Đảo hài hước và rất ý nghĩa</a>
-                                <p class="date">13/1/2021</p>
-                                <span>Review phim Lừa Đểu Gặp Lừa Đảo (The Con-Heartist) thuộc thể loại com-rom tình cảm hài có nội dung về phi vụ lừa đảo hấp dẫn và bất ngờ.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/little-women.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Cảm nhận phim Little Women khi phụ nữ là trung tâm</a>
-                                <p class="date">9/3/2020</p>
-                                <span>Review phim Little Women, tất cả các cô gái đều đưa ra lựa chọn mà mình thấy là dũng cảm hơn, táo bạo hơn.</span>
-                            </div>
-                        </div>
-            </div>
+                    </div>
+                </div>
+        <?php }
+        } ?>
+
+        <ul class="pagination justify-content-center">
+            <?php
+            for ($i = 1; $i <= $count; $i++) {
+                if ($i == $page) {
+                    echo "<li class='page-item active'><a class='page-link' href='phimtinhcam.php?page={$i}'>{$i}</a></li>";
+                } else {
+                    echo "<li class='page-item'><a class='page-link' href='phimtinhcam.php?page={$i}'>{$i}</a></li>";
+                }
+            }
+            ?>
+        </ul>
     </div>
     <!-- Sidebar -->
-            <?php include "include/side-bar.php"; ?>
+    <?php include "include/side-bar.php"; ?>
     <!-- End Sidebar -->
 </div>
-<!--End page content -->
+<!-- End page content -->
 <?php include "include/footer.php"; ?>

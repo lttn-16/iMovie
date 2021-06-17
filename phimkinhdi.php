@@ -1,4 +1,4 @@
-<!-- Review phim kinh dị -->
+<!-- Trang tin tức -->
 
 <!-- Navigation -->
 <?php include "./include/navigation.php"; ?>
@@ -6,59 +6,68 @@
 <div class="container container-index">
     <div class="left">
         <h3 class="block-title">
-        Phim kinh dị
+            Phim kinh dị
         </h3>
-            <div class="row row-index">
+        <?php
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = '';
+        }
+
+        if ($page == '' || $page == 1) {
+            $page_1 = 0;
+        } else {
+            $page_1 = ($page * 10) - 10;
+        }
+
+        $post_query_count = "SELECT * FROM posts WHERE post_category_id = 3";
+        $find_count = mysqli_query($connection, $post_query_count);
+        $count = mysqli_num_rows($find_count);
+        $count = ceil($count / 10);
+
+        $query = "SELECT * FROM posts WHERE post_category_id = 3 LIMIT $page_1,10";
+        $query_seclect_all_posts = mysqli_query($connection, $query);
+
+        while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
+            $post_title = $row['post_title'];
+            $post_id = $row['post_id'];
+            $post_author = $row['post_author'];
+            $post_date = $row['post_date'];
+            $post_image_display = $row['post_img_display'];
+            $post_status = $row['post_status'];
+            $post_summary = $row['post_summary'];
+            if ($post_status == 'published') {
+        ?>
+                <div class="row row-index">
                     <div class="post">
-                        <a href="post.php">
-                            <img class="index-img" src="./images/duong-cong-cua-quy.jpg">
+                        <a href="post.php?p_id=<?php echo $post_id ?>">
+                            <img class="index-img" src="./images/<?php echo $post_image_display; ?>">
                         </a>
                         <div class="content">
-                            <a href="post.php">Review phim Đường Cong Của Quỷ (The Cursed Lesson) vụng về và rời rạc</a>
-                            <p class="date">16/1/2021</p>
-                            <span>Review phim Đường Cong Của Quỷ (The Cursed Lesson) là phim kinh dị Hàn Quốc nói về nỗi ám ảnh của xã hội về ngoại hình và vật chất. Phim có chất lượng khá kém từ cả phần cốt truyện, hình ảnh cho đến diễn xuất.</span>
+                            <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
+                            <p class="date"><?php echo $post_date ?></p>
+                            <span><?php echo $post_summary ?></span>
                         </div>
                     </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/gone-girl.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review và giải thích phim Cô Gái Mất Tích Gone Girl (2014)</a>
-                                <p class="date">23/1/2019</p>
-                                <span>Nếu bạn đã xem qua phim nhưng vẫn còn nhiều vướng mắc chưa được giải đáp, thì bài review và giải thích phim Cô Gái Mất Tích Gone Girl sẽ giúp bạn nắm bắt và hiểu rõ phim hơn.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/vung-troi-tu-than.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review phim Vùng Trời Tử Thần (Horizon Line) pha xử lý cồng kềnh</a>
-                                <p class="date">28/1/2021</p>
-                                <span>Review phim Vùng Trời Tử Thần (Horizon Line) là tác phẩm thể loại sinh tồn giật gân nhưng có cốt truyện yếu, thiếu tính logic mang đến trải nghiệm xem phim đáng thất vọng.</span>
-                            </div>
-                        </div>
-            </div>
-            <div class="row row-index">
-                        <div class="post">
-                            <a href="post.php">
-                                <img class="index-img" src="./images/freaky.jpg">
-                            </a>
-                            <div class="content">
-                                <a href="post.php">Review phim Freaky (Quái đản) tác phẩm kinh dị hài thú vị</a>
-                                <p class="date">4/12/2020</p>
-                                <span>Review phim Freaky là sự pha trộn tuyệt vời giữa những giây phút hồi hộp, lo sợ trong hành trình lấy lại thân xác của Millie nhưng cũng không kém phần hài hước.</span>
-                            </div>
-                        </div>
-            </div>
+                </div>
+        <?php }
+        } ?>
+
+        <ul class="pagination justify-content-center">
+            <?php
+            for ($i = 1; $i <= $count; $i++) {
+                if ($i == $page) {
+                    echo "<li class='page-item active'><a class='page-link' href='phimkinhdi.php?page={$i}'>{$i}</a></li>";
+                } else {
+                    echo "<li class='page-item'><a class='page-link' href='phimkinhdi.php?page={$i}'>{$i}</a></li>";
+                }
+            }
+            ?>
+        </ul>
     </div>
     <!-- Sidebar -->
-            <?php include "include/side-bar.php"; ?>
+    <?php include "include/side-bar.php"; ?>
     <!-- End Sidebar -->
 </div>
 <!-- End page content -->

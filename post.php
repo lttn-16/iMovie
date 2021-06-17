@@ -94,49 +94,77 @@
         <!-- Comment zone -->
 
         <!-- Comment Form -->
+        <?php
+                    if (isset($_POST['comment'])) {
+                        $p_id = $_GET['p_id'];
+                        $cmt_author = $_POST['cmt_author'];
+                        $cmt_email = $_POST['cmt_email'];
+                        $cmt_content = $_POST['cmt_content'];
+                        $cmt_date = date("Y-m-d H:i:s");
+                        $cmt_status = 0;
+
+                        if (isset($cmt_author) && isset($cmt_email) && isset($cmt_content)) {
+                            $sql = "INSERT INTO comments(post_id, cmt_author, cmt_content, cmt_date, cmt_email, cmt_status) VALUES ($p_id, '$cmt_author', '$cmt_content', '$cmt_date', '$cmt_email', $cmt_status);";
+                            $query = mysqli_query($connection, $sql);
+                        }
+                    }
+        ?>
         <div class="comment">
             <h4><b>Bình luận:</b></h4>
-            <form role="form" method="POST">
+            <form method="POST">
                 <div class="form-group">
                     <label for="author">Tên</label>
-                    <input type="text" class="form-control" name="comment_author">
+                    <input type="text" require="" class="form-control" name="cmt_author">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name="comment_email">
+                    <input type="email" require="" class="form-control" name="cmt_email">
                 </div>
                 <div class="form-group">
                     <label for="comment">Nội dung</label>
-                    <textarea class="form-control" rows="4" required></textarea>
+                    <textarea class="form-control" require="" rows="4" name="cmt_content" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-danger">Đăng</button>
+                <button type="submit" class="btn btn-danger" name="comment">Đăng</button>
             </form>
         </div>
         <!-- End Comment Form -->
 
-        <p><span class="badge">2</span> Comments:</p><br>
-        <!-- Reply Zone -->
-        <div class="row">
-            <div class="col-sm-2 text-center">
-                <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-            </div>
-            <div class="col-sm-10">
-                <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
-                <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <br>
-            </div>
-            <div class="col-sm-2 text-center">
-                <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-            </div>
-            <div class="col-sm-10">
-                <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
-                <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <br>
-            </div>
+        <?php
+                    $p_id = $_GET['p_id'];
+                    $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
+                    $query_cmt = mysqli_query($connection, $sql_cmt);
+                    $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
+                    $count_cmt = mysqli_query($connection, $sql_count_cmt);
+                    $total_cmt = mysqli_num_rows($count_cmt);
+                    if ($total_cmt > 0) {
 
-            <!-- End Reply Zone -->
-            <!-- End Comment zone -->
-        </div>
+        ?>
+            <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
+            <!-- Reply Zone -->
+            <div class="row">
+                <?php
+                        while ($row = mysqli_fetch_array($query_cmt)) {
+                            if ($row['cmt_status'] == 1) {
+                ?>
+                        <div class="col-sm-2 text-center">
+                            <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                        </div>
+                        <div class="col-sm-10">
+                            <h4> <?php echo $row['cmt_author'] ?> <small><?php echo $row['cmt_date'] ?></small></h4>
+                            <p><?php echo $row['cmt_content'] ?></p>
+                            <br>
+                        </div>
+                <?php
+                            }
+                        }
+                ?>
+
+                <!-- End Reply Zone -->
+                <!-- End Comment zone -->
+            </div>
+        <?php
+                    }
+        ?>
         <!-- End Post -->
     </div>
 

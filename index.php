@@ -1,7 +1,8 @@
-<?php include "include/db.php"; ?>
 <?php include "include/header.php"; ?>
 <!-- Trang chủ -->
-<?php include "./include/navigation.php"; ?>
+<?php include "include/navigation.php"; ?>
+<?php include "include/user_online.php" ?>
+
 <div class="container container-index">
     <div class="left">
         <div class="title-wrap">

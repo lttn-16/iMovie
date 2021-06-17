@@ -41,7 +41,6 @@ reset_view();
                     <th>Xem</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
-                    <th>Lượt xem</th>
                 </tr>
             </thead>
             <tbody>

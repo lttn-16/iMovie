@@ -1,39 +1,17 @@
-<?php
+<?php add_user(); ?>
 
-    if(isset($_POST['create_user'])){
-        $username=$_POST['username'];
-        $user_email=$_POST['user_email'];
-        $user_password=$_POST['user_password'];
-        $user_role=$_POST['user_role'];
-
-        $query = "INSERT INTO users(username, user_email, user_password, user_role)";
-        $query .= "VALUES('{$username}', '{$user_email}',{$user_password}, '{$user_role}')";
-       
-        $create_user_query = mysqli_query($connection, $query);
-      
-        confirm($create_user_query);
-
-        $the_user_id = mysqli_insert_id($connection);
-
-        echo "<p class='bg-success'> Thêm người dùng thành công </p>";
-    }
-
-?>
-
-
+<!-- Thêm người dùng -->
 <h1 class="page-header">
     Thêm người dùng
-
 </h1>
-
+<?php echo $message; ?>
 <form method="post" enctype="multipart/form-data" id="form-1">
-   
+
     <div class="form-group">
         <label for="user_role">Vai trò</label>
         <br>
         <select name="user_role">
-
-            <option value="admin">Chọn vai trò</option>
+            <option value="subcriber">Chọn vai trò</option>
             <option value="admin">Admin</option>
             <option value="subcriber">Subcriber</option>
         </select>
@@ -61,5 +39,3 @@
         <input type="submit" name="create_user" class="btn btn-primary" value="Add User">
     </div>
 </form>
-
-

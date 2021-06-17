@@ -1,3 +1,6 @@
+<?php
+include "../include/function.php";
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -11,13 +14,16 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-
-        <li><a href="">Users Online: <span class="useronline">1</span></a></li>
+        <li><a href="">Users Online: <span class="useronline"></span></a></li>
         <li><a href="../index.php">HOME SITE</a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                nhi
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo $_SESSION['username'];
+                }
+                ?>
 
                 <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -26,7 +32,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="/"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
+                    <a href="../include/logout.php"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
                 </li>
             </ul>
         </li>
@@ -52,7 +58,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li>
                 <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i>Danh mục</a>
             </li>
@@ -80,3 +86,18 @@
 
     <!-- /.navbar-collapse -->
 </nav>
+<script>
+    <?php if (isset($_SESSION['user_role'])) { ?>
+
+        function loadUsersOnline() {
+            $.get("../include/function.php?onlineusers=result", function(data) {
+                $(".useronline").text(data);
+            });
+        }
+        setInterval(function() {
+            loadUsersOnline();
+        }, 500);
+    <?php } else { ?>
+        $(".useronline").text("0");
+    <?php } ?>
+</script>

@@ -3,7 +3,6 @@
   padding: 0;
 }
 
-
 html {
   position: relative;
   min-height: 100%;
@@ -81,14 +80,14 @@ a:active {
 
 .admin__name {
   font-family: arial;
-    color: #d32531;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
+  color: #d32531;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .admin__name:hover {
-  color:#d32531 ;
+  color: #d32531;
 }
 .logo__name:hover {
   color: #d32531;
@@ -102,13 +101,18 @@ a:active {
 }
 
 .admin__img {
-  
   color: red;
-  margin-right: 5px;;
+  margin-right: 5px;
 }
 
 .menu-icon {
   display: none;
+}
+
+.icon-back {
+  float: left;
+  margin-top: -5%;
+  width: 45px !important;
 }
 
 .navbar-expand-md {
@@ -116,7 +120,7 @@ a:active {
 
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .content {
@@ -223,6 +227,11 @@ nav {
 .post {
   display: flex;
 }
+
+/* .pager li .active_link {
+  background-color: rgb(152, 247, 133) !important;
+} */
+
 .content {
   padding-left: 15px;
 }
@@ -817,6 +826,10 @@ html {
     color: #fff;
     margin: 5px 0;
   }
+
+  .admin {
+    margin-left: 17%;
+  }
 }
 
 @media (max-width: 769px) {
@@ -878,6 +891,10 @@ html {
 
   .footer {
     padding-top: 30px;
+  }
+
+  .admin {
+    margin-left: 21%;
   }
 }
 
@@ -945,9 +962,17 @@ html {
   .btn-login {
     margin: 5px 5px;
   }
+
+  .admin {
+    margin-left: 22%;
+  }
 }
 
 @media (max-width: 420px) {
+  .logo__img {
+    margin-left: 34%;
+  }
+
   .searchbar {
     margin-left: 30%;
   }
@@ -982,7 +1007,7 @@ html {
     margin-left: 20%;
   }
   .admin {
-    margin-left: 6%;
+    margin-left: 22%;
   }
 
   .admin_nav {
