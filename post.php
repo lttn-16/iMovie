@@ -130,21 +130,23 @@
         <!-- End Comment Form -->
 
         <?php
-                    $p_id = $_GET['p_id'];
-                    $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
-                    $query_cmt = mysqli_query($connection, $sql_cmt);
-                    $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
-                    $count_cmt = mysqli_query($connection, $sql_count_cmt);
-                    $total_cmt = mysqli_num_rows($count_cmt);
-                    if ($total_cmt > 0) {
+                $p_id = $_GET['p_id'];
+                $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
+                $query_cmt = mysqli_query($connection, $sql_cmt);
+                $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
+                $count_cmt = mysqli_query($connection, $sql_count_cmt);
+                $total_cmt = mysqli_num_rows($count_cmt);
+                if ($total_cmt > 0) {
+                    $i=0;
 
         ?>
             <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
-            <!-- Reply Zone -->
-            <div class="row">
+            
+            <div class="row" id="load_cmt">
                 <?php
                         while ($row = mysqli_fetch_array($query_cmt)) {
-                            if ($row['cmt_status'] == 1) {
+                            if ($row['cmt_status'] == 1 && $i<3) {
+                                    $i++;
                 ?>
                         <div class="col-sm-2 text-center">
                             <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
@@ -158,17 +160,41 @@
                             }
                         }
                 ?>
-
-                <!-- End Reply Zone -->
-                <!-- End Comment zone -->
             </div>
         <?php
-                    }
+            }
         ?>
+        <!-- End Comment zone -->
+
+        <div class="show_more_button">
+            <center><button type="button" id="<?php echo $p_id; ?>" class="btn btn-outline-danger">Xem thêm bình luận</button></center>  
+        </div>
+        
         <!-- End Post -->
     </div>
 
 <?php  } ?>
+
+<script type="text/javascript">
+	$(document).on("click", ".btn-outline-danger", function(){
+		var id = $(this).attr("id");
+		$('.btn-outline-danger').html("Loading...");
+		$.ajax({
+			url: "load_more_cmt.php",
+			method: "POST",
+			data: {
+				id: id
+			},
+			dataType: "html",
+			success: function(data) {
+				$(".show_more_button").remove();
+                $("#load_cmt").empty();
+                $("#load_cmt").html(data);
+            }
+		});
+	});
+</script>
+
 <!-- Sidebar -->
 <?php include "include/side-bar.php"; ?>
 <!-- End Sidebar -->
