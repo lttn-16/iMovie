@@ -1,15 +1,5 @@
 $(document).ready(function(){
 
-    //user online
-    // function loadUsersOnline(){
-    //     $.get("admin_function.php?onlineusers=result", function(data){
-    //         $(".useronline").text(data);
-    //             });
-    // }
-
-    // setInterval(function(){
-    //     loadUsersOnline();
-    // }, 500);
     
     //Select all checkbox
     $('#selectAllBoxes').click(function(e){
@@ -26,7 +16,10 @@ $(document).ready(function(){
     });
 
     //Data Table
-    $('#example').DataTable();
+    $('#example').DataTable({
+        "order": [[ 0, "desc" ]]
+    });
+
 
     //CK Editor 5
     var editor = CKEDITOR.replace( 'editor' );
