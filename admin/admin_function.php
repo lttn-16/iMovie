@@ -135,6 +135,7 @@ function display_all_posts()
         $post_comment_count = $row['post_comment_count'];
         $post_status = $row['post_status'];
         $post_views = $row['post_views'];
+
         echo "<tr class='center'>";
         echo "<td><input type='checkbox' class='checkBoxes' name='checkBoxArray[]' value='$post_id'></td>";
         echo "<td>{$post_id}</td>";
