@@ -61,7 +61,7 @@ li a {
 }
 
 .post a:hover,
-a:active {
+a:active{
   color: #d32531;
 }
 
@@ -946,7 +946,6 @@ html {
   .post a {
     font-size: 0.8rem;
   }
-
   .content {
     margin: unset;
   }
@@ -1013,4 +1012,8 @@ html {
   .admin_nav {
     margin-left: 20%;
   }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.75);
 }

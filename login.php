@@ -43,13 +43,14 @@ if (isset($_POST['login'])) {
         $_SESSION['user_email'] = $db_user_email;
 
         if (isset($_POST['remember'])) {
-
+            setcookie('remember_userId', $db_user_id, time() + 86400);
             setcookie('remember_user', $username, time() + 86400);
             setcookie('remember_password', $remember_password, time() + 86400);
-
-            header("Location: index.php");
+            $location = isset($_GET['from']) ? $_GET['from'] : 'index.php';
+            header("Location: ./$location");
         } else {
-            header("Location: index.php");
+            $location = isset($_GET['from']) ? $_GET['from'] : 'index.php';
+            header("Location: ./$location");
         }
     } else {
         $message = 'Sai tên đăng nhập hoặc mật khẩu!';
@@ -59,7 +60,19 @@ if (isset($_POST['login'])) {
 
 <div class="main">
     <form action="" method="POST" class="form" id="form-2">
-        <div><a href="index.php" class="btn btn-danger btn-sm icon-back"><i class="fas fa-arrow-left"></i></a></div>
+        <div>
+            <script>
+                window.onload = function () {
+                    let searchParams = new URLSearchParams(window.location.search);
+                    let from = 'index.php';
+                    if (searchParams.has('from')) {
+                        from = searchParams.get('from');
+                    }
+                    document.getElementById('back-button').setAttribute('href', from);
+                }
+            </script>
+            <a id="back-button" href="index.php" class="btn btn-danger btn-sm icon-back"><i class="fas fa-arrow-left"></i></a>
+        </div>
         <h5><?php echo $message; ?></h5>
         <div class="form-header">
             <img class="form-logo" src="./images/logo.jpg" alt="logo">

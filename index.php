@@ -3,6 +3,7 @@
 <?php include "include/navigation.php"; ?>
 <?php include "include/user_online.php" ?>
 
+</script>  
 <div class="container container-index">
     <div class="left">
         <div class="title-wrap">

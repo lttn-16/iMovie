@@ -29,6 +29,7 @@
                 $query_seclect_all_posts = mysqli_query($connection, $query);
 
                 while ($row = mysqli_fetch_assoc($query_seclect_all_posts)) {
+                    $post_id = $row['post_id'];
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
@@ -68,6 +69,66 @@
         </div>
         <!-- End Post-content -->
 
+        <!--Post-like -->
+        <div class="post-like">
+            <button id="like-button" class="btn btn-primary" onclick="like()">
+                <i class="fa fa-thumbs-up"></i>
+                <span id="like-count"></span>
+                <span id="like-status"></span>
+            </button>
+            <script src="./js/jquery-3.6.0.min.js"></script>
+            <script>
+                var jqNew = $.noConflict();
+                var likeData = {
+                    onload: true,
+                    post_id: '<?php echo $post_id?>'
+                }
+                window.onload = function() {
+                    jqNew.ajax({
+                        type: "POST",
+                        url: './helpers/postLike.php',
+                        data: likeData,
+                        success: (data) => {
+                            var obj = JSON.parse(data);
+                            jqNew('#like-count').html(obj.like_count);
+                            if (obj.liked == true) {
+                                jqNew('#like-status').html('Đã thích');
+                                jqNew('#like-button').removeClass('btn-primary').addClass('btn-success');
+                            } else {
+                                jqNew('#like-status').html('Thích');
+                            }
+                        }
+                    });
+                }
+                function like() {
+                    var likeData = {
+                        onload: false,
+                        post_id: '<?php echo $post_id?>'
+                    }
+                    jqNew.ajax({
+                        type: "POST",
+                        url: './helpers/postLike.php',
+                        data: likeData,
+                        success: (data) => {
+                            var obj = JSON.parse(data);
+                            if (obj.require_login) {
+                                window.location.href = './login.php?from=post.php?p_id=' + likeData.post_id;
+                            }
+                            jqNew('#like-count').html(obj.like_count);
+                            if (obj.liked == true) {
+                                jqNew('#like-status').html('Đã thích');
+                                jqNew('#like-button').removeClass('btn-primary').addClass('btn-success');
+                            } else {
+                                jqNew('#like-status').html('Thích');
+                                jqNew('#like-button').removeClass('btn-success').addClass('btn-primary');
+                            }
+                        }
+                    });
+                }
+            </script>
+        </div>
+        <!-- End Post-like -->
+
         <!-- Tag list -->
         <div class="tag">
             <button type="button" class="btn btn-dark" disabled="disabled">TAGS</button>
@@ -78,7 +139,6 @@
             ?>
 
         </div>
-
         <!--End Tag list -->
 
         <!-- Social share -->
@@ -172,6 +232,6 @@
 <!-- Sidebar -->
 <?php include "include/side-bar.php"; ?>
 <!-- End Sidebar -->
-</div>
+                </div>
 <!-- End Post page -->
 <?php include "include/footer.php"; ?>

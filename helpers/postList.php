@@ -29,48 +29,45 @@ $sql="SELECT post_id, post_title, post_date, post_author, post_summary, post_img
 $sql .="WHERE post_title LIKE '%".$keyword."%' or post_author like '%".$keyword."%' "; 
 $sql.=" LIMIT $start, $limit";
 
-$query_seclect_matched_posts = mysqli_query($connection, $sql);
-$i = 0;
-while ($row = mysqli_fetch_assoc($query_seclect_matched_posts)) {
-    $i++;
-    echo <<<EOF
-    <div class="row row-index">
-        <div class="post">
-            <a href="post.php?p_id=$row[post_id]">
-                <img class="index-img" src="./images/$row[post_img_display]">
-            </a>
-            <div class="content">
-                <a href="post.php?p_id=$row[post_id]">$row[post_title]</a>
-                <p class="date">$row[post_date]</p>
-                <span>$row[post_summary]</span>
+$query_select_matched_posts = mysqli_query($connection, $sql);
+
+if ( $query_select_matched_posts ) 
+{ 
+    while ($row = mysqli_fetch_assoc($query_select_matched_posts)) {
+        echo <<<EOF
+        <div class="row row-index">
+            <div class="post">
+                <a href="post.php?p_id=$row[post_id]">
+                    <img class="index-img" src="./images/$row[post_img_display]">
+                </a>
+                <div class="content">
+                    <a href="post.php?p_id=$row[post_id]">$row[post_title]</a>
+                    <p class="date">$row[post_date]</p>
+                    <span>$row[post_summary]</span>
+                </div>
             </div>
         </div>
-    </div>
-    EOF;
+        EOF;
+    }
 }
-
-if ($i == 0) {
+else
+{ 
     echo '<span style = "margin: auto; font-size: 1.8em">Không có bài viết phù hợp</span>';
-}
-
-if ($current_page > 1 && $total_page > 1){
-    echo '<a href="index.php?page='.($current_page-1).'">Prev</a> | ';
-}
+}  
+?>
+<ul class="pagination justify-content-center">
+<?php
 // Lặp khoảng giữa
 for ($i = 1; $i <= $total_page; $i++){
-    // Nếu là trang hiện tại thì hiển thị thẻ span
-    // ngược lại hiển thị thẻ a
     if ($i == $current_page){
-        echo '<span>'.$i.'</span> | ';
+        echo "<li class='page-item active'style='display:inline-block;list-style-type:none'><a class='page-link' href='search.php?keyword={$keyword}'>{$i}</a></li>";
     }
 
     else{
-        echo '<a href="search.php?keyword=' . $keyword . '&page='.$i.'">'.$i.'</a> | ';
+        echo '<li class="page-item"style="display:inline-block;list-style-type:none"><a class="page-link" href="search.php?keyword='.$keyword. '&page='.$i.'">'.$i.'</a></li>';
     }
 }
- 
-// nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-if ($current_page < $total_page && $total_page > 1){
-    echo '<a href="index.php?page='.($current_page+1).'">Next</a> | ';
-}
 ?>
+</ul>
+
+

@@ -72,13 +72,13 @@
       <i class="menu-icon fa fa-bars" aria-hidden="true" style="color: #fff; font-size: 1.8rem;"></i>
     </div>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active li-nav">
+      <li class="nav-item  li-nav">
         <a class="nav-link" href="index.php">Trang chủ </a>
       </li>
-      <li class="nav-item active li-nav">
+      <li class="nav-item li-nav">
         <a class="nav-link" href="tintuc.php">Tin tức</a>
       </li>
-      <li class="nav-item dropdown active li-nav">
+      <li class="nav-item dropdown li-nav">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Review phim</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="phimtinhcam.php">Phim tình cảm</a>
@@ -88,10 +88,10 @@
           <a class="dropdown-item" href="phimhoathinh.php">Phim hoạt hình</a>
         </div>
       </li>
-      <li class="nav-item active li-nav">
+      <li class="nav-item li-nav">
         <a class="nav-link" href="gioithieuphimhay.php">Giới thiệu phim hay</a>
       </li>
-      <li class="nav-item active li-nav">
+      <li class="nav-item li-nav">
         <a class="nav-link" href="./contact.php">Liên hệ</a>
       </li>
     </ul>
@@ -103,3 +103,10 @@
     </form>
   </div>
 </nav>
+<script>
+var url = window.location;
+$('ul.navbar-nav a[href="'+ url +'"]').parent().addClass('active');
+$('ul.navbar-nav a').filter(function() {
+    return this.href == url;
+}).parent().addClass('active');
+</script>
