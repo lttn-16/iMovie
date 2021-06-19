@@ -130,23 +130,22 @@
         <!-- End Comment Form -->
 
         <?php
-                $p_id = $_GET['p_id'];
-                $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id ORDER BY cmt_id DESC";
-                $query_cmt = mysqli_query($connection, $sql_cmt);
-                $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
-                $count_cmt = mysqli_query($connection, $sql_count_cmt);
-                $total_cmt = mysqli_num_rows($count_cmt);
-                if ($total_cmt > 0) {
-                   $i=0;
+                    $p_id = $_GET['p_id'];
+                    $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id LIMIT 3";
+                    $query_cmt = mysqli_query($connection, $sql_cmt);
+                    $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
+                    $count_cmt = mysqli_query($connection, $sql_count_cmt);
+                    $total_cmt = mysqli_num_rows($count_cmt);
+                    if ($total_cmt > 0) {
 
         ?>
             <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
-            
+
             <div class="row" id="load_cmt">
                 <?php
                         while ($row = mysqli_fetch_array($query_cmt)) {
-                            if ($row['cmt_status'] == 1 && $i<3) {
-                                    $i++;
+                            if ($row['cmt_status'] == 1) {
+
                 ?>
                         <div class="col-sm-2 text-center">
                             <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
@@ -156,55 +155,35 @@
                             <p><?php echo $row['cmt_content'] ?></p>
                             <br>
                         </div>
-                        
-                <?php
-              
-                            }
-                            
-                        }
-                ?>
-                <?php
-                if ($total_cmt > 3) {
-                ?>
-                    <div class="show_more_button">
-                        <button type="button" id="<?php echo $p_id; ?>" class="btn btn-outline-danger" style="margin-left:30px;">Xem thêm bình luận</button> 
-                    </div>
-                <?php  
-                }
-                ?>
-              
-            </div>
 
-        <?php
-            }
-        ?>
+                <?php  }
+                        } ?>
+
+            </div>
+            <?php if ($total_cmt > 3) { ?>
+                <div class="show_more_button">
+                    <button type="button" id="loadmore" class="btn btn-outline-danger" style="margin-left:30px;">Xem thêm bình luận</button>
+                </div>
+        <?php  }
+                    } ?>
         <!-- End Comment zone -->
 
-        
-        
         <!-- End Post -->
     </div>
 
 <?php  } ?>
 
-<script type="text/javascript">
-	$(document).on("click", ".btn-outline-danger", function(){
-		var id = $(this).attr("id");
-		$('.btn-outline-danger').html("Loading...");
-		$.ajax({
-			url: "include/load_more_cmt.php",
-			method: "POST",
-			data: {
-				id: id
-			},
-			dataType: "html",
-			success: function(data) {
-				$(".show_more_button").remove();
-                $("#load_cmt").empty();
-                $("#load_cmt").html(data);
-            }
-		});
-	});
+<script>
+    $(document).ready(function() {
+        var cmt_count = 3;
+        $('#loadmore').click(function() {
+            cmt_count += 3;
+            $('#load_cmt').load("include/load_more_cmt.php", {
+                cmt_count_pass: cmt_count,
+                id: <?php echo $_GET['p_id']; ?>
+            });
+        });
+    });
 </script>
 
 <!-- Sidebar -->
