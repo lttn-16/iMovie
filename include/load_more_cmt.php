@@ -1,5 +1,4 @@
-<?php include "include/db.php"; ?>
-
+<?php include "db.php"; ?>
 <?php
     $sql_cmt = "SELECT * FROM comments WHERE post_id = ".$_POST['id']." ORDER BY cmt_id DESC";
     $query_cmt = mysqli_query($connection, $sql_cmt);
@@ -27,7 +26,7 @@
             }
     ?>
     </div>
+    
 <?php
 }
 ?>
-

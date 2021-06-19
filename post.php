@@ -137,7 +137,7 @@
                 $count_cmt = mysqli_query($connection, $sql_count_cmt);
                 $total_cmt = mysqli_num_rows($count_cmt);
                 if ($total_cmt > 0) {
-                    $i=0;
+                   $i=0;
 
         ?>
             <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
@@ -156,19 +156,31 @@
                             <p><?php echo $row['cmt_content'] ?></p>
                             <br>
                         </div>
+                        
                 <?php
+              
                             }
+                            
                         }
                 ?>
+                <?php
+                if ($total_cmt > 3) {
+                ?>
+                    <div class="show_more_button">
+                        <button type="button" id="<?php echo $p_id; ?>" class="btn btn-outline-danger" style="margin-left:30px;">Xem thêm bình luận</button> 
+                    </div>
+                <?php  
+                }
+                ?>
+              
             </div>
+
         <?php
             }
         ?>
         <!-- End Comment zone -->
 
-        <div class="show_more_button">
-            <center><button type="button" id="<?php echo $p_id; ?>" class="btn btn-outline-danger">Xem thêm bình luận</button></center>  
-        </div>
+        
         
         <!-- End Post -->
     </div>
@@ -180,7 +192,7 @@
 		var id = $(this).attr("id");
 		$('.btn-outline-danger').html("Loading...");
 		$.ajax({
-			url: "load_more_cmt.php",
+			url: "include/load_more_cmt.php",
 			method: "POST",
 			data: {
 				id: id
