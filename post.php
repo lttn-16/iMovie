@@ -168,22 +168,42 @@
                     }
         ?>
         <div class="comment">
-            <h4><b>Bình luận:</b></h4>
-            <form method="POST">
-                <div class="form-group">
-                    <label for="author">Tên</label>
-                    <input type="text" require="" class="form-control" name="cmt_author">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" require="" class="form-control" name="cmt_email">
-                </div>
-                <div class="form-group">
-                    <label for="comment">Nội dung</label>
-                    <textarea class="form-control" require="" rows="4" name="cmt_content" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-danger" name="comment">Đăng</button>
-            </form>
+            <?php if (isset($_SESSION['username'])){
+            ?>
+                <h4><b>Bình luận:</b></h4>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="author" hidden >Tên</label>
+                        <input type="text" require="" class="form-control" name="cmt_author" value="<?php echo $_SESSION['username']  ?>" hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" hidden>Email</label>
+                        <input type="email" require="" class="form-control" name="cmt_email" value="<?php echo $_SESSION['user_email'] ?>" hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Nội dung</label>
+                        <textarea class="form-control" require="" rows="4" name="cmt_content" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger" name="comment">Đăng</button>
+                </form>
+            <?php } else {?>
+                <h4><b>Bình luận:</b></h4>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="author">Tên</label>
+                        <input type="text" require="" class="form-control" name="cmt_author">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" require="" class="form-control" name="cmt_email">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Nội dung</label>
+                        <textarea class="form-control" require="" rows="4" name="cmt_content" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger" name="comment">Đăng</button>
+                </form>
+            <?php }?>
         </div>
         <!-- End Comment Form -->
 
