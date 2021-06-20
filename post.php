@@ -130,42 +130,37 @@
         <!-- End Comment Form -->
 
         <?php
-                    $p_id = $_GET['p_id'];
-                    $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id LIMIT 3";
-                    $query_cmt = mysqli_query($connection, $sql_cmt);
-                    $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
-                    $count_cmt = mysqli_query($connection, $sql_count_cmt);
-                    $total_cmt = mysqli_num_rows($count_cmt);
-                    if ($total_cmt > 0) {
-
-        ?>
-            <p><span class="badge"><?php echo $total_cmt ?></span> Comments:</p><br>
-
-            <div class="row" id="load_cmt">
-                <?php
-                        while ($row = mysqli_fetch_array($query_cmt)) {
-                            if ($row['cmt_status'] == 1) {
-
-                ?>
-                        <div class="col-sm-2 text-center">
+            $p_id = $_GET['p_id'];
+            $sql_cmt = "SELECT * FROM comments WHERE post_id = $p_id LIMIT 3";
+            $query_cmt = mysqli_query($connection, $sql_cmt);
+            $sql_count_cmt = "SELECT * FROM comments WHERE post_id = $p_id AND cmt_status = 1;";
+            $count_cmt = mysqli_query($connection, $sql_count_cmt);
+            $total_cmt = mysqli_num_rows($count_cmt);
+            if ($total_cmt > 0) {
+                echo '<p><span class="badge">'.$total_cmt.'</span> Comments:</p><br>';
+                    echo '<div class="row" id="load_cmt">';
+                    while ($row = mysqli_fetch_array($query_cmt)) {
+                        if ($row['cmt_status'] == 1) {
+                            echo '<div class="col-sm-2 text-center">
                             <img src="./images/avatar.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-                        </div>
-                        <div class="col-sm-10">
-                            <h4> <?php echo $row['cmt_author'] ?> <small><?php echo $row['cmt_date'] ?></small></h4>
-                            <p><?php echo $row['cmt_content'] ?></p>
-                            <br>
-                        </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <h4>'.$row['cmt_author'].'<small style="margin-left:15px;">'.$row['cmt_date'].'</small></h4>
+                                <p>'.$row['cmt_content'].'</p>
+                                <br>
+                            </div>';
+                    
+                        }
+                    }
+                    echo '</div>';           
 
-                <?php  }
-                        } ?>
-
-            </div>
-            <?php if ($total_cmt > 3) { ?>
-                <div class="show_more_button">
-                    <button type="button" id="loadmore" class="btn btn-outline-danger" style="margin-left:30px;">Xem thêm bình luận</button>
-                </div>
-        <?php  }
-                    } ?>
+                    if ($total_cmt > 3) {
+                        echo '<div class="show_more_button">
+                            <center><button type="button" id="loadmore" name="'.$total_cmt.'" class="btn btn-danger" style="margin-left:30px;margin-bottom:100px;">Xem thêm</button></center>
+                        </div>';
+                    }
+            }
+        ?>
         <!-- End Comment zone -->
 
         <!-- End Post -->
@@ -175,6 +170,7 @@
 
 <script>
     $(document).ready(function() {
+        var total_cmt = $('#loadmore').attr("name");;
         var cmt_count = 3;
         $('#loadmore').click(function() {
             cmt_count += 3;
@@ -182,8 +178,14 @@
                 cmt_count_pass: cmt_count,
                 id: <?php echo $_GET['p_id']; ?>
             });
+
+            //remove btn loadmore
+            if(cmt_count >= total_cmt){
+                $("#loadmore").remove();
+            }
         });
     });
+
 </script>
 
 <!-- Sidebar -->

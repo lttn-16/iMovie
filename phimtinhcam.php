@@ -6,7 +6,7 @@
 <div class="container container-index">
     <div class="left">
         <h3 class="block-title">
-            Phim kinh dị
+            Phim tình cảm
         </h3>
         <?php
         if (isset($_GET['page'])) {
@@ -42,7 +42,7 @@
                 <div class="row row-index">
                     <div class="post">
                         <a href="post.php?p_id=<?php echo $post_id ?>">
-                            <img class="index-img" src="./images/<?php echo $post_image_display; ?>">
+                            <img class="index-img" src="<?php echo $post_image_display; ?>">
                         </a>
                         <div class="content">
                             <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>

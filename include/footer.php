@@ -29,7 +29,7 @@
                         <div class="col-md-3">
                             <div class="card">
                                 <a href="post.php?p_id=<?php echo $post_id ?>">
-                                    <img class="card-img-top" src="./images/<?php echo $post_image_display; ?>">
+                                    <img class="card-img-top" src="<?php echo $post_image_display; ?>">
                                 </a>
                                 <div class="card-body">
                                     <h4><a class="card-title" href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a></h4>
