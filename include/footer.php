@@ -26,7 +26,7 @@
                     $post_summary = $row['post_summary'];
                     if ($post_status == 'published') {
                 ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <a href="post.php?p_id=<?php echo $post_id ?>">
                                     <img class="card-img-top" src="<?php echo $post_image_display; ?>">
@@ -51,13 +51,13 @@
         <!-- Viết footer -->
         <div class="container container-footer">
             <div class="row row-footer">
-                <div class="footer-col col-md-3">
+                <div class="footer-col col-md-3 col-sm-6">
                     <h4>Giới Thiệu</h4>
                     <p style="width:88%;">iMovie là một trang blog chuyên review phim: nhận xét, đánh giá,
                         tóm tắt nội dung các phim chiếu rạp Việt Nam và Hollywood với cảm nhận cá nhân.
                     </p>
                 </div>
-                <div class="footer-col col-md-3">
+                <div class="footer-col col-md-3 col-sm-6">
                     <h4>Điều Khoản Và Chính Sách</h4>
                     <ul>
                         <li><a href="#">Trách nhiệm người sử dụng</a></li>
@@ -67,7 +67,7 @@
                     </ul>
 
                 </div>
-                <div class="footer-col col-md-3">
+                <div class="footer-col col-md-3 col-sm-6">
                     <h4>Liên Hệ</h4>
                     <ul style="width:88%;">
                         <!-- <li><a href="#"><img src="./images/logo_transparent.png" alt="logo"></a></li> -->
@@ -78,7 +78,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-col col-md-3">
+                <div class="footer-col col-md-3 col-sm-6">
                     <h4>Theo Dõi iMovie</h4>
                     <ul>
                         <li>

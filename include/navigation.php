@@ -2,11 +2,11 @@
 <?php session_start(); ?>
 
 <div class="row ">
-  <div class="col-sm-8 logo">
+  <div class="col-sm-7 col-md-8  logo">
     <a href="./index.php"><img class="logo__img" src="./images/logo.jpg" alt="iMovie Logo"></a>
     <a href="./index.php" class="logo__name">iMovie</a>
   </div>
-  <div class="col-lg-4">
+  <div class="col-sm-5 col-md-4">
     <div class="btn_nav">
       <?php if (isset($_SESSION['user_role'])) {
         if ($_SESSION['user_role'] == 'admin') {
