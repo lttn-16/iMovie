@@ -964,6 +964,17 @@ html {
   }
 }
 
+@media (max-width: 575px) {
+  .logo__img {
+    margin-left: 30%;
+  }
+
+  .col-sm-5 {
+    margin-left: 23%;
+
+  }
+}
+
 @media (max-width: 420px) {
   .logo__img {
     margin-left: 34%;
@@ -972,8 +983,9 @@ html {
   .searchbar {
     margin-left: 30%;
   }
-  .btn_nav {
-    margin-left: 25%;
+
+  .col-sm-5 {
+    margin-left: -11%;
   }
 
   .admin {
@@ -996,11 +1008,11 @@ html {
   }
 
   .logo__img {
-    margin-left: 10%;
+    margin-left: 26%;
   }
 
   .btn_nav {
-    margin-left: 20%;
+    margin-left: 30%;
     width: 75%;
   }
   .admin {
