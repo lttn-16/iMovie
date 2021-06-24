@@ -38,6 +38,7 @@ reset_view();
                     <th>Ngày xuất bản</th>
                     <th>Bình luận</th>
                     <th>Lượt xem</th>
+                    <th>Lượt like</th>
                     <th>Xem</th>
                     <th>Sửa</th>
                     <th>Xóa</th>

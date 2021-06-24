@@ -38,7 +38,7 @@ if (isset($_SESSION['userId'])) {
                 $row = mysqli_fetch_assoc($result);
                 $like_count = $row['like_count'];
             }
-            $sql_update_like = "UPDATE posts SET likes = '$like_count' WHERE postid = '$postid'";
+            $sql_update_like = "UPDATE posts SET likes = '$like_count' WHERE post_id = '$postid'";
             mysqli_query($connection, $sql_update_like);
         } else {
             $liked = true;
@@ -50,7 +50,7 @@ if (isset($_SESSION['userId'])) {
                 $row = mysqli_fetch_assoc($result);
                 $like_count = $row['like_count'];
             }
-            $sql_update_like = "UPDATE posts SET likes = '$like_count' WHERE postid = '$postid'";
+            $sql_update_like = "UPDATE posts SET likes = '$like_count' WHERE post_id = '$postid'";
             mysqli_query($connection, $sql_update_like);
         }
     }

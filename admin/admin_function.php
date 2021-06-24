@@ -135,6 +135,10 @@ function display_all_posts()
         $post_comment_count = $row['post_comment_count'];
         $post_status = $row['post_status'];
         $post_views = $row['post_views'];
+        $post_likes = $row['likes'];
+        if (!$post_likes) {
+            $post_likes = 0;
+        }
 
         echo "<tr class='center'>";
         echo "<td><input type='checkbox' class='checkBoxes' name='checkBoxArray[]' value='$post_id'></td>";
@@ -168,6 +172,7 @@ function display_all_posts()
         echo "<td>{$post_date}</td>";
         echo "<td>{$post_comment_count}</td>";
         echo "<td><a href='posts.php?reset={$post_id}'>{$post_views}</a></td>";
+        echo "<td>{$post_likes}</td>";
         echo "<td><a href='../post.php?p_id={$post_id}' target='_blank' ><i class='fas fa-eye fa-lg'></a></td>";
         echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}' ><i class='fas fa-edit fa-lg'></i></a></td>";
         echo "<td><a onClick=\" javascript: return confirm('Are you sure you want to delete?'); \" href='posts.php?delete={$post_id}' ><i class='fas fa-trash-alt fa-lg'></i></a></td>";
