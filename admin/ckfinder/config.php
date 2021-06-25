@@ -66,12 +66,13 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => 'http://localhost/iMovie/admin/ckfinder/userfiles/',
+    'baseUrl'      => 'https://imoviee.herokuapp.com/admin/ckfinder/userfiles/',
     //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
 );
+// http://localhost/iMovie/admin/ckfinder/userfiles/
 
 /*================================ Resource Types =====================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_resourceTypes
