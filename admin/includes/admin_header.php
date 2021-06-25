@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_role'])) {
 
     <!-- Text Editor -->
     <!-- <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script> -->
-    <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 
     <!-- Chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
