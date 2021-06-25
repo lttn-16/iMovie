@@ -21,7 +21,6 @@ if (!isset($_SESSION['user_role'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../images/logo_transparent.png" type="image/gif" sizes="20x20">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
