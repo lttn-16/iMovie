@@ -817,6 +817,26 @@ html {
   #search-box {
     margin-left: 40px;
   }
+
+  .navbar {
+    margin-top: -2%;
+  }
+
+  .btn_nav {
+    margin-top: 22%;
+  }
+}
+
+@media (max-width: 1015px) {
+  .navbar {
+    margin-top: -3%;
+  }
+}
+
+@media (max-width: 920px) {
+  #keyword {
+    width: 63%;
+  }
 }
 
 @media (max-width: 850px) {
@@ -856,7 +876,11 @@ html {
 
 @media (max-width: 769px) {
   .searchbar {
-    margin-left: 60%;
+    margin-left: 55%;
+  }
+
+  .navbar {
+    margin-top: -4%;
   }
 
   .admin_nav {
@@ -900,6 +924,23 @@ html {
 }
 
 @media (max-width: 617px) {
+
+  .navbar {
+    margin-top: unset;
+  }
+
+  .btn_nav {
+    margin-top: 22% !important;
+  }
+
+  .logo__img {
+    width: 55%;
+  }
+
+  .searchbar {
+    margin-left: 50%;
+  }
+
   .btn-login {
     float: left;
     margin-right: 1px;
@@ -916,6 +957,7 @@ html {
   }
 
   .btn_nav {
+    margin-top: unset !important;
     margin: 15px auto;
   }
 
@@ -961,13 +1003,24 @@ html {
   }
 
   .admin {
-    margin-left: 2%;
+    margin-top: 10%;
+    margin-left: 25%;
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   .logo__img {
+    width: 43%;
     margin-left: 30%;
+  }
+
+  .admin {
+    margin-top: unset;
+    margin-left: 15%;
+  }
+
+  .btn_nav {
+    margin-left: 10%;
   }
 
   .col-sm-5 {
