@@ -1,11 +1,11 @@
     <!-- bài báo mới -->
-    <div class="container container-footer">
-        <div class="container-fluid padding">
+    <div class="container container-index">
+        <div class="post_footer">
             <hr class="my-1-footer" />
             <!-- Tiêu đề -->
             <div class="row padding">
                 <div class="col-md-12">
-                    <h3 class="title t-bold t-bold--condensed mb-3">Bài viết mới</h3>
+                    <h4 class="title t-bold t-bold--condensed mb-3">Bài viết mới</h4>
                 </div>
             </div>
             <!-- Hết phần tiêu đề -->
@@ -26,7 +26,7 @@
                     $post_summary = $row['post_summary'];
                     if ($post_status == 'published') {
                 ?>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6 post_card">
                             <div class="card">
                                 <a href="post.php?p_id=<?php echo $post_id ?>">
                                     <img class="card-img-top" src="<?php echo $post_image_display; ?>">
