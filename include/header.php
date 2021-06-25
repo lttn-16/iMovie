@@ -12,8 +12,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-
-    <title>iMove - Website Review Film</title>
+    <link rel="icon" href="images/logo_transparent.png" type="image/gif" sizes="20x20">
+    <title>iMovie - Website Review Film</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
