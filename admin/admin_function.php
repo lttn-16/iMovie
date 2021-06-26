@@ -504,7 +504,7 @@ function add_posts()
         move_uploaded_file($post_image_display_temp, "../images/$post_image_display");
 
         $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, 
-            post_img_display, post_content, post_summary, post_tags, post_status) ";
+        post_img_display, post_content, post_summary, post_tags, post_status) ";
 
         $query .= "VALUES({$post_category_id}, '{$post_title}', '{$post_author}', now(), '{$post_image_display}','{$post_content}','{$post_summary}', '{$post_tags}', '{$post_status}')";
 
@@ -595,6 +595,7 @@ function edit_post()
     global $post_status;
     global $post_summary;
     global $post_content;
+    global $post_image_display;
     global $post_tags;
     global $message;
     $message = '';

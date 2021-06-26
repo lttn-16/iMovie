@@ -13,6 +13,7 @@
       ?>
 
           <div class="admin">
+            <a href=""><i class="fa fa-user admin__img" hidden></i></a>
             <a href="admin/index.php"><i class="fa fa-user admin__img"></i></a>
             <a href="admin/index.php" class="admin__name">ADMIN</a>
           </div>

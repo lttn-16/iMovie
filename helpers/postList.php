@@ -36,7 +36,7 @@ if ($query_select_matched_posts) {
         <div class="row row-index">
             <div class="post">
                 <a href="post.php?p_id=$row[post_id]">
-                    <img class="index-img" src="$row[post_img_display]">
+                    <img class="index-img" src="images/$row[post_img_display]">
                 </a>
                 <div class="content">
                     <a href="post.php?p_id=$row[post_id]">$row[post_title]</a>

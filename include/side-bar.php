@@ -19,7 +19,7 @@
         
             <div class="post">
                 <a href="post.php?p_id=<?php echo $post_id ?>">
-                    <img src="<?php echo $post_image_display; ?>">
+                    <img src="images/<?php echo $post_image_display;?>">
                 </a>
                 <div class="content">
                     <a class="title" href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
