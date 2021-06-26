@@ -17,5 +17,11 @@ $userData = $oAuth->userinfo_v2_me->get();
 
 $_SESSION['user_role'] = 'subcriber';
 
+$_SESSION['userId'] = rand(1, 10000);
+
+$_SESSION['username'] = $userData['givenName'];
+
+$_SESSION['user_email'] = $userData['email'];
+
 header('Location: index.php');
 exit();

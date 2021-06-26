@@ -552,6 +552,10 @@ html {
   overflow: hidden;
 }
 
+.post_card {
+  margin-top: 30px;
+}
+
 /* Footer */
 .container-footer {
   max-width: 1230px;

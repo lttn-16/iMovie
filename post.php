@@ -156,6 +156,9 @@
                     if (isset($_POST['comment'])) {
                         $p_id = $_GET['p_id'];
                         $cmt_author = $_POST['cmt_author'];
+                        if($_SESSION['user_email']) {
+                            $cmt_email = $_SESSION['user_email'];
+                        }
                         $cmt_email = $_POST['cmt_email'];
                         $cmt_content = $_POST['cmt_content'];
                         $cmt_date = date("Y-m-d H:i:s");
