@@ -10,21 +10,36 @@
     <div class="btn_nav">
       <?php if (isset($_SESSION['user_role'])) {
         if ($_SESSION['user_role'] == 'admin') {
-      ?>
-
-          <div class="admin">
-            <a href=""><i class="fa fa-user admin__img" hidden></i></a>
-            <a href="admin/index.php"><i class="fa fa-user admin__img"></i></a>
-            <a href="admin/index.php" class="admin__name">ADMIN</a>
+      ?> 
+          <style>
+            #adminDropdown:focus {
+              box-shadow: none;
+            }
+          </style>
+          <div class="btn-group position-relative"  data-toggle="dropdown">
+            <button id="adminDropdown" type="button" class="btn btn-danger-outline">
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user admin__img" hidden></i></span>
+              <span><i class="fa fa-user admin__img"></i></span>
+              <span class="admin__name">ADMIN</span>
+            </button>
+            <button style="height: 10px; width: 10px; line-height: 10px; padding: 6px; box-sizing: content-box; position: absolute; right: -16px; top: 8px; border-radius: 50%;" type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            
           </div>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="admin/">Dashboard</a>
+              <a class="dropdown-item" href="admin/posts.php?source=add_post">Thêm bài viết</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="include/logout.php">Đăng xuất</a>
+            </div>
       <?php }
       } ?>
       <?php if ((isset($_SESSION['user_role'])) || (isset($_SESSION['access_token']))) : ?>
-        <a href="include/logout.php"><button type="submit" class="btn btn-login btn-success">Đăng xuất</button></a>
       <?php else : ?>
         <a href="login.php"><button type="submit" class="btn btn-login btn-danger"> Đăng nhập</button></a>
+        <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
       <?php endif; ?>
-      <a href="registration.php"><button type="submit" class="btn btn-login btn-danger"> Đăng ký</button></a>
     </div>
   </div>
 </div>
